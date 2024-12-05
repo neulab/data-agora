@@ -21,7 +21,7 @@
 - [2024/12] We release the **Agora** and **Agora-Bench**!
   - **Agora-Bench** covers 9 settings, measuring data generation capabilities across 3 domains and 3 data generation methods.
   - **Agora** is an easily customizable framework for data generation with LLMs.
-  - Checkout our [dataset](https://huggingface.co/datasets/prometheus-eval/BiGGen-Bench), [checkpoints](https://huggingface.co/datasets/prometheus-eval/BiGGen-Bench-Results), [leaderboard](https://huggingface.co/spaces/prometheus-eval/BiGGen-Bench-Leaderboard), and the [code](https://github.com/prometheus-eval/prometheus-eval/tree/main/BiGGen-Bench)!
+  - Checkout our [dataset](https://huggingface.co/Data-Agora), [checkpoints](https://huggingface.co/Data-Agora), [leaderboard](https://huggingface.co/spaces/prometheus-eval/BiGGen-Bench-Leaderboard), and the [code](https://github.com/neulab/data-agora)!
 
 
 ## 🔧 Installation
@@ -68,7 +68,7 @@ python3 run.py --method {} --domain {} --model_name {} --max_tokens 4096 --tempe
 
 For custom usage with different pipelines, parsing mechanisms, and validation logics, Alchemy supports convenient customization through abstract classes.
 
-1.**Prompt Loader:**
+1.**Prompt Loader:**: A class that prepares the meta-prompt passed to the data generator.
 ```python
 class CustomPromptLoader(InstanceGenerationPromptLoader):
    def __init__(self, prompt_template: str, seed_data: List[Dict], num_fewshot: int, placeholder_formats: Dict[str, str] = None, num_sample_from_seed_data: Optional[int] = None, [...]):
@@ -80,7 +80,7 @@ class CustomPromptLoader(InstanceGenerationPromptLoader):
       return PromptResult(prompt=prompt, metadata=metadata)
 ```
 
-2.**Parser:**
+2.**Parser:**: A class that separates the instruction and response from the data generator's output.
 ```python
 class CustomParser(Parser):
 
@@ -89,7 +89,7 @@ class CustomParser(Parser):
       return {"instruction: instruction, "response": response}
 ```
 
-3.**Validator:**
+3.**Validator:**: A class that determines if the output is valid or not.
 ```python
 class CustomValidator(Validator):
    def validate(self, instruction: str, response: str, [...]):
