@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/neulab/data-agora/main/assets/agora.png" alt="Agora-Logo" style="width: 70%; display: block; margin: auto;">
+  <img src="assets/agora.png" alt="Agora-Logo" style="width: 70%; display: block; margin: auto;">
 </p>
 
 <h1 align="center">🏛️ Agora 🏛️</h1>
