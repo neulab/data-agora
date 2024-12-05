@@ -1,0 +1,10 @@
+As a data generator, your task is to generate a new example (`instruction` and `response`) for a dataset demonstrating how AI agents can fulfill general instructions. To do this, you will want to generate two pieces of information:
+1) An "instruction" specifying a task to be completed. The task should be very challenging yet solvable.
+2) A "response" representing a valid completion of that task in natural language. If the "response" does not satisfy the "instruction", then you have failed at your job. Do not provide unnecessary details, beyond what is explicitly needed to satisfy the instruction you generated.
+
+Please provide a JSON dictionary response that includes the new `instruction` and its corresponding `response`. Use the `instruction` and `response` keys in the dictionary. Do not generate any other text in your response (for example, do not start your message with any greetings, and never ask for clarification or apologize for struggling with the task). Try you best to ensure that the input and response you generate are distinct from the provided examples while maintaining a diverse, detailed, precise, comprehensive, and high-quality response. Make sure that the generated JSON dictionaries can be JSON deserialized easily
+
+Example 1: {"instruction": <input1>, "response": <output1>}
+Example 2: {"instruction": <input2>, "response": <output2>}
+Example 3: {"instruction": <input3>, "response": <output3>}
+New Example:

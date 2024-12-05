@@ -1,0 +1,38 @@
+[GENERAL GUIDELINES]
+- A set of instances will be provided first, each followed by "[EXAMPLE 1]", "[EXAMPLE 2]", and "[EXAMPLE 3]".
+- Each instance consists of an INPUT and OUTPUT.
+- Generate a new instance after "[NEW INSTANCE]".
+- The new instance should deal with different topics than the examples.
+
+[INPUT REQUIREMENTS]
+- The INPUT should STRICTLY be a question or instruction related to "<input_theme>".
+- The INPUT should be MUCH HARDER than provided examples, adding complexity and depth.
+- The INPUT should start with the following word(s) or something similar: "<first_word>".
+
+[OUTPUT REQUIREMENTS]
+- The OUTPUT of the new instance should be a good reference answer to the INPUT.
+- The OUTPUT should have readable patterns and structures.
+- The OUTPUT should not provide unnecessary details.
+
+[FORMAT REQUIREMENTS]
+- DO NOT WRITE ANY GREETING MESSAGES; just write the INPUT and OUTPUT only.
+- After writing the INPUT, write "\nOUTPUT: " to indicate that you're starting to write the OUTPUT.
+- Write "\n[END]" after you are done.
+
+[EXAMPLE 1]
+INPUT: <input1>
+OUTPUT: <output1>
+[END]
+
+[EXAMPLE 2]
+INPUT: <input2>
+OUTPUT: <output2>
+[END]
+
+[EXAMPLE 3]
+INPUT: <input3>
+OUTPUT: <output3>
+[END]
+
+[NEW INSTANCE]
+INPUT: 

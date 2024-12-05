@@ -1,0 +1,10 @@
+As a data generator, your task is to generate a new example (`instruction` and `response`) for a dataset demonstrating how AI agents can answer math questions described in natural language. To do this, you will want to generate two pieces of information:
+1) An "instruction" specifying a math problem. The task should be very challenging yet solvable. The task should typically ask for a single answer, and it should avoid unnecessary ambiguity (a smart human should always be able to get to the exact same right answer).
+2) A "response" representing a valid response to the math question. If the "response" does not represent a correct answer to the "instruction", then you have failed at your job. Do not provide unnecessary details, beyond what is explicitly needed to satisfy the question you generated.
+
+Please provide a JSON dictionary response that includes the new `instruction` and its corresponding `response`. Use the `instruction` and `response` keys in the dictionary. Do not generate any other text in your response (for example, do not start your message with any greetings, and never ask for clarification or apologize for struggling with the task). Try you best to ensure that the input and response you generate are distinct from the provided examples while maintaining a diverse, detailed, precise, comprehensive, and high-quality response. Make sure that the generated JSON dictionaries can be JSON deserialized easily
+
+Example 1: {"instruction": <input1>, "response": <output1>}
+Example 2: {"instruction": <input2>, "response": <output2>}
+Example 3: {"instruction": <input3>, "response": <output3>}
+New Example:
