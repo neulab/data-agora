@@ -85,7 +85,7 @@ Our library is convenient for two types of audiences:
 ### Step 1: Generate Data with Pre-built Pipeline
 You could simply run the following script:
 ```
-cd "./alchemy_scripts"
+cd "./agora_scripts"
 
 python3 run.py --method "instance_generation" --domain "math" --model_name "gpt-4o-mini-2024-07-18" --max_tokens 4096 --temperature 1.0 --num_instances 10000 --num_threads 4 --api_key ""
 ```
@@ -296,7 +296,7 @@ agora = Agora(
     sampling_params=sampling_params
 )
 
-# Use cache_file to resume from previous results: The Alchemy class will automatically make a cache file "final_result.jsonl" for example
+# Use cache_file to resume from previous results: The Agora class will automatically make a cache file "final_result.jsonl" for example
 result = agora.run(num_instances=10000, num_threads=16, output_file="./results/final_result.json")
 print(result[0])
 ```
