@@ -166,7 +166,24 @@ TO BE ADDED
 
 
 ## **Custom Usage**
-For custom usage with different pipelines, parsing mechanisms, and validation logics, Alchemy supports convenient customization through abstract classes.
+For custom usage with different pipelines, parsing mechanisms, and validation logics, Agora supports convenient customization through abstract classes.
+
+### **Important Keywords**: First define the following dictionary:
+```
+placeholder_formats = {
+    "demonstration_input_placeholder": "<input@>",
+    "demonstration_output_placeholder": "<output@>",
+    "test_input_placeholder": "<input>",
+    "test_output_placeholder": "<output>",
+    "test_input_trigger": "INPUT:",
+    "test_output_trigger": "OUTPUT:",
+    "stop_phrase": "[END]",
+    "input_theme": "<input_theme>",
+}
+```
+These will be used in the following classes.
+- `demonstration_input_placeholder` and `demonstration_output_placeholder` is where the in-context demonstrations will be at.
+- `test_input_placeholder` and `test_output_placeholder`
 
 ### **Prompt Loader**: A class that prepares the meta-prompt passed to the data generator.
 ```python
@@ -181,12 +198,26 @@ class CustomPromptLoader(InstanceGenerationPromptLoader):
 ```
 
 ### **Parser**: A class that separates the instruction and response from the data generator's output.
-```python
-class CustomParser(Parser):
 
-   def parse(self, prompt, teacher_model_output, placeholder_formats, [...]):
-      [...]
-      return {"instruction: instruction, "response": response}
+
+```python
+class InstanceGenerationParser(Parser):
+    """Parser for instance generation scenario"""
+
+    def parse(self, prompt, teacher_model_output, placeholder_formats: Dict[str, str]) -> Dict[str, str]:
+
+        instruction = (
+            teacher_model_output.split(placeholder_formats["test_input_trigger"])[-1]
+            .split(placeholder_formats["test_output_trigger"])[0]
+            .strip()
+        )
+        response = (
+            teacher_model_output.split(placeholder_formats["test_output_trigger"])[-1]
+            .split(placeholder_formats["stop_phrase"])[0]
+            .strip()
+        )
+
+        return {"instruction": instruction, "response": response}
 ```
 
 ### **Validator**: A class that determines if the output is valid or not.
