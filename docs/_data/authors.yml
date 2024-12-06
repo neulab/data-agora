@@ -1,40 +1,40 @@
 - name: Seungone Kim
   affiliation: Carnegie Mellon University
   website: https://seungonekim.github.io/
-  img: ../assets/img/seungone.jpeg
+  img: seungone.jpeg
 - name: Juyoung Suk
   affiliation: KAIST AI
   website: https://github.com/scottsuk0306
-  img: ../assets/img/juyoung.jpeg
+  img: juyoung.jpeg
 - name: Xiang Yue
   affiliation: Carnegie Mellon University
   website: https://xiangyue9607.github.io/
-  img: ../assets/img/xiang.jpg
+  img: xiang.jpg
 - name: Vijay Viswanathan
   affiliation: Carnegie Mellon University
   website: https://www.cs.cmu.edu/~vijayv/
-  img: ../assets/img/vijay.png
+  img: vijay.png
 - name: Seongyun Lee
   affiliation: KAIST AI
   website: https://github.com/sylee0520
-  img: ../assets/img/seongyun.png
+  img: seongyun.png
 - name: Yizhong Wang
   affiliation: University of Washington
   website: https://homes.cs.washington.edu/~yizhongw/
-  img: ../assets/img/yizhong.jpg
+  img: yizhong.jpg
 - name: Kiril Gashteovski
   affiliation: NEC Laboratories Europe
   website: https://www.linkedin.com/in/gashteovski/
-  img: ../assets/img/kiril.jpg
+  img: kiril.jpg
 - name: Carolin Lawrence
   affiliation: NEC Laboratories Europe
   website: https://carolinlawrence.github.io/
-  img: ../assets/img/carolin.jpg
+  img: carolin.jpg
 - name: Sean Welleck
   affiliation: Carnegie Mellon University
   website: https://wellecks.com/
-  img: ../assets/img/sean.png
+  img: sean.png
 - name: Graham Neubig
   affiliation: Carnegie Mellon University
   website: https://phontron.com/
-  img: ../assets/img/graham.jpg
+  img: graham.jpg
