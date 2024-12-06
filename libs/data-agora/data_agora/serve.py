@@ -1,14 +1,15 @@
-'''
+"""
 Usage:
 
-python -m agora.serve \
+python -m alchemy.serve \
     --model meta-llama/Meta-Llama-3-8B-Instruct \
     --max-model-len 4096 \
     --tensor-parallel-size 1 \
     --gpu-memory-utilization 0.85 \
     --gpu-ids 0 \
     --port 7000
-'''
+"""
+
 import argparse
 import os
 import subprocess
@@ -22,9 +23,11 @@ from dotenv import load_dotenv
 # Delete ~/.cache/huggingface/hub and try again
 # ref: https://github.com/huggingface/huggingface_hub/issues/2197#issuecomment-2047170683
 
+
 # ref: https://docs.ray.io/en/master/ray-core/objects/object-spilling.html#cluster-mode
 def setup_ray_spilling(spill_dir: str = None):
     import json
+
     import ray
 
     if spill_dir is None:
@@ -36,13 +39,11 @@ def setup_ray_spilling(spill_dir: str = None):
     ray.init(
         _temp_dir=str(spill_dir),
         _system_config={
-            "object_spilling_config": json.dumps({
-                "type": "filesystem",
-                "params": {"directory_path": str(spill_dir)}
-            }),
+            "object_spilling_config": json.dumps({"type": "filesystem", "params": {"directory_path": str(spill_dir)}}),
         },
     )
     return spill_dir
+
 
 def main():
     load_dotenv()
@@ -64,8 +65,10 @@ def main():
         "--gpu-ids", type=str, default="0", help='Comma-separated list of GPU IDs to use (e.g., "0,1,2,3")'
     )
     parser.add_argument(
-        "--ray-spill-dir", type=str, default=None, 
-        help="Directory for Ray object spilling (default: temporary directory)"
+        "--ray-spill-dir",
+        type=str,
+        default=None,
+        help="Directory for Ray object spilling (default: temporary directory)",
     )
 
     args = parser.parse_args()
@@ -79,20 +82,29 @@ def main():
         "python",
         "-m",
         "vllm.entrypoints.openai.api_server",
-        "--host", args.host,
-        "--port", str(args.port),
-        "--model", args.model,
-        "--dtype", args.dtype,
-        "--max-model-len", str(args.max_model_len),
-        "--tensor-parallel-size", str(args.tensor_parallel_size),
-        "--gpu-memory-utilization", str(args.gpu_memory_utilization),
-        "--download-dir", args.download_dir,
+        "--host",
+        args.host,
+        "--port",
+        str(args.port),
+        "--model",
+        args.model,
+        "--dtype",
+        args.dtype,
+        "--max-model-len",
+        str(args.max_model_len),
+        "--tensor-parallel-size",
+        str(args.tensor_parallel_size),
+        "--gpu-memory-utilization",
+        str(args.gpu_memory_utilization),
+        "--download-dir",
+        args.download_dir,
     ]
 
     if args.trust_remote_code:
         command.append("--trust-remote-code")
 
     subprocess.run(" ".join(command), shell=True)
+
 
 if __name__ == "__main__":
     main()

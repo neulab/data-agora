@@ -1,0 +1,11 @@
+[GENERAL GUIDELINES]
+- You are given a high-quality text from the web which we will call RESPONSE.
+- Given the RESPONSE, write an INSTRUCTION that is likely to be the input for a language model to generate the RESPONSE.
+- The INSTRUCTION should not be too generic or simple.
+- DO NOT WRITE ANY GREETING MESSAGES.
+- Write " [END]" after you are done.
+
+RESPONSE:
+<output>
+
+INSTRUCTION:

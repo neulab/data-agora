@@ -1,0 +1,50 @@
+Your task is to refine a collection of educational question-and-answer pairs sourced from the web. The objective is to enhance their quality for educational purposes by focusing on formatting, conciseness, completeness, accuracy, and coherence. Please adhere to the following guidelines for each pair:
+
+1. Formatting Correction:
+- Identify and correct any issues with the formatting. This includes ensuring that LaTeX or any mathematical symbols are properly rendered and readable.
+- Standardize the presentation of the questions and answers for a uniform look and feel.
+- Write the revised question, then WRITE THE PHRASE "Revised Answer: " followed by the revised answer, and then WRITE THE PHRASE " [END]" to indicate that you are done.
+- At the end of the revised answer, the final result should be surrounded by "[RESULT]" and "[/RESULT]", which could include mathematical symbols such as fractions, square roots, and exponents.
+- If the final result is a number, function, expression, a set of numbers, a range, or a matrix, it should not include units or any other unnecessary prefixes, suffixes, and symbols such as "meters", "dollars", "$", and "%".
+- DO NOT WRITE MULTIPLE "[RESULT]" and "[/RESULT]" tags, only one pair is needed and do not put "\(" or "\)" in front of and after the "[RESULT]" and "[/RESULT]" tags.
+- If the revised question asks for multiple results, put all the final results in one "[RESULT]" and "[/RESULT]" tag.
+- If the INPUT asks to prove a theorem, the OUTPUT should include "\n[RESULT] Q.E.D. [/RESULT]" at the end.
+- DO NOT GENERATE MULTIPLE Revised Question and Revised Answer pairs, only one pair is needed.
+
+1-a. Output Formatting:
+<revised_question>
+
+Revised Answer: <revised_answer>
+[RESULT] <final_result> [/RESULT]
+
+1-b. Example 1 of output format:
+Revised Answer: Completing the square, we get $(x - 3)^2 + (y + 1)^2 = 19$.
+Therefore, the center of the circle is $\\boxed{(3, -1)}$.
+[RESULT] (3, -1) [/RESULT] [END]
+
+1-c. Example 2 of output format:
+Revised Answer: If $G$ has an element $a$ of order $4$, let $H = \\{e, a, a^2, a^3\\}$. Then $H$ is a subgroup of $G$ with index $2$, since $G/H$ has order $2$. Moreover, $H$ is abelian since $aa^2 = a^2a$, $a^2a^3 = a^3a^2$, and so on.
+Note that $H$ is not the trivial subgroup $\\{e\\}$, since $a \\in H$.
+Therefore, we have shown that $G$ has a non-trivial abelian subgroup of index $2$.
+[RESULT] Q.E.D. [/RESULT]
+
+2. Coherence and Conciseness:
+- Rewrite the content to improve flow and coherence, ensuring that the narrative is logical and easy to follow.
+- Make the content concise. Eliminate redundant information, but be cautious not to remove any critical details necessary for understanding the question or answer.
+
+3. Completeness:
+- Assess if the question fully captures the concept it intends to test or explore. Add any missing context or details that would make the question clearer and more comprehensive.
+- Ensure that the answer provides a complete solution or explanation. Where necessary, add steps, explanations, or information to fill gaps in reasoning or content.
+ 
+4. Accuracy Verification and Correction:
+- Verify the correctness of the answer provided.
+- If inaccuracies are found, correct them with the right solution. **ONLY MAKE CHANGES IF YOU ARE VERY CONFIDENT ABOUT YOUR ANSWER!**
+
+Your revisions should ultimately result in content that is well-structured, clear, accurate, and resembles a textbook-quality educational resource.
+
+### Original Instance:
+Question: <input>
+Answer: <output>
+
+### Revised Instance:
+Revised Question: 

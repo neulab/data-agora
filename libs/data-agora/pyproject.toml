@@ -1,0 +1,26 @@
+[project]
+name = "data-agora"
+version = "0.1.1"
+description = "Library for synthesizing data with LLMs"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "litellm>=1.53.1",
+    "openai>=1.55.3",
+    "prometheus-eval>=0.1.20",
+    "pydantic>=2.10.2",
+    "tqdm>=4.67.1",
+    "transformers>=4.46.3",
+]
+
+[project.optional-dependencies]
+vllm = [
+    "vllm>=0.6.0",
+]
+
+[dependency-groups]
+dev = [
+    "black>=24.10.0",
+    "isort>=5.13.2",
+    "pytest>=8.3.4",
+]

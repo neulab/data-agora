@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/agorabench.png" alt="Agora-Logo" style="width: 50%; display: block; margin: auto;">
+  <img src="https://raw.githubusercontent.com/neulab/data-agora/main/assets/agorabench.png" alt="Agora-Logo" style="width: 50%; display: block; margin: auto;">
 </p>
 
 <h1 align="center">🏛️ Agora 🏛️</h1>
@@ -26,7 +26,7 @@
 ## What does Agora mean?
 
 <p align="center">
-  <img src="assets/agora.png" alt="Agora-Logo" style="width: 80%; display: block; margin: auto;">
+  <img src="https://raw.githubusercontent.com/neulab/data-agora/main/assets/agora.png" alt="Agora-Logo" style="width: 80%; display: block; margin: auto;">
 </p>
 
 *In ancient Athens, the Agora was a public space where citizens would gather to debate, share news, learn from each other, and listen to famous philosophers.*

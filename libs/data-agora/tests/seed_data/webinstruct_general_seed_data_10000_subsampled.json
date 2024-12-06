@@ -1,0 +1,122 @@
+[
+    {
+        "config": "webinstruct_general",
+        "instruction": "Discrete logarithm is a value $x$ that satisfy the equality $$a^x \\mod m = b$$ Is there an easy way to find the smallest possible discrete logarithm, knowing some other discrete log. Basically if I have $x_1$ that satisfy the equality, is there a way to find $x_2$ that is the smallest possible?",
+        "response": "Assuming $a$ (equivalently, $b$) is coprime to $m$, $a^{x_1}\\equiv a^{x_2}\\pmod m$ implies $a^{x_1-x_2}\\equiv 1\\pmod m$, so $x_1-x_2$ is a multiple of the order $o(a)$ of $a$ modulo $m$. And vice versa, $x_1\\equiv x_2\\pmod{o(a)}$ implies $a^{x_2}\\equiv a^{x_1}$. So we should take $x_2=x_1\\bmod {o(a)}$. Remains to find $o(a)$. Certainly, $o(a)\\mid \\varphi(m)$ as $a^{\\varphi(m)}\\equiv 1\\pmod m$. Starting from $o:=\\varphi(m)$, try all primes $p\\mid o$ and check whether $a^{o/p}\\equiv 1\\pmod m$ and if so, replace $o$ with $o/p$ and start again.\n$\\varphi(m)$ is an Euler's totient function\n    ",
+        "idx": 0
+    },
+    {
+        "config": "webinstruct_general",
+        "instruction": "What is the relationship between the AD, SRAS, and LRAS curves when the economy is in equilibrium?",
+        "response": "Macroeconomic Equilibrium\n<img>/cimages/multimages/16/full_employment_gdp5736591560291189139.jpg</img>\n\n\n\nThis graph shows Aggregate Demand AD, Short-Run Aggregate Supply SRAS, and Long-Run Aggregate Supply LRAS at the full employment macroeconomic equilibrium. At this point, Real GDP (that is, adjusted for inflation) is at its long-run maximum and the curve crosses both the SRAS and the LRAS. It means that the economy is producing all that is possible at the given time and with the existing resources. Any further increase in output will be inflationary.",
+        "idx": 1
+    },
+    {
+        "config": "webinstruct_general",
+        "instruction": "Part B\n\nWhat is the correct net ionic equation, including all coefficients, charges, and phases, for the following set of reactants? Assume that the contribution of protons from H{eq}_2{/eq}SO{eq}_4{/eq} is near 100 %.\n\n{eq}\\rm Ba(OH)_2(aq) + H_2SO_4(aq) \\to{/eq}\n\nExpress your answer as a chemical equation.",
+        "response": "The required net ionic chemical equation is:\n\n{eq}\\rm\n\nBa^{2+}(aq)+ 2OH^{-}(aq) + 2H^{+}(aq)+SO_{4}^{2-}(aq) \\rightarrow BaSO_{4}(s) + 2H_{2}O(l)\n\n{/eq}\n\nIn this reaction, both the charge and mass are balanced on the two sides of the equation, and there are no spectator ions in this example which would cancel in other examples. Thus, this is the net ionic equation required.",
+        "idx": 2
+    },
+    {
+        "config": "webinstruct_general",
+        "instruction": "Is it possible to sequence only the 16S rRNA component? If so, how?\n\nThere have recently been several papers on using 16S rRNA as a way of identifying species (here, and here). I'm wondering if it's possible to sequence either just that subunit of the ribosome or just the sequence of DNA that it comes from (probably not, I know). That way you can use only the sequence you need to compare against other 16S rRNA sequences to test for novel species. \nIf so, what is the process involved?",
+        "response": "Basically, all 16S genes are highly conserved, i.e., they share much identical bases. This means one can bind the 16S gene piece (after DNA was cut) to a specific other piece of DNA, even if you don't know exactly the 16S gene bases. Everything else is discarded then. Now finally, using PCR the rest is amplified and sequenced. Sequencing 16S only is much less work, so that's how they did it years ago. Today, whole microbiomes are sequenced by professional labs.",
+        "idx": 3
+    },
+    {
+        "config": "webinstruct_general",
+        "instruction": "Show your work:\n\na. Convert 15ft to inches.\n\nb. Convert 21 yards to feet.\n\nc. Convert 31680 feet to miles.\n\nd. Convert 10.9 yards to meters.\n\ne. Convert 36 liters to quarts.",
+        "response": "The following are the different ways a unit is converted into the other where the measurement is multiplied by a corresponding conversion factor in order to express it as an equivalent amount in a different unit.\n\na. There are {eq}\\color{blue}{ 180 \\text{ inches}}\n\n{/eq} in {eq}15\n\n{/eq} feet by using the ratio of {eq}12\n\n{/eq} inches for every foot as a conversion factor as shown below:\n\n$$15 \\ \\text{feet} \\ \\times  \\ \\left( \\dfrac {12 \\ \\text{inches}}{ 1 \\ \\text{foot}}\\right) = 180 \\ \\text{inches}\n\n$$\n\nb. There are {eq}\\color{blue}{63 \\ \\text{feet}}\n\n{/eq} in {eq}21\n\n{/eq} yards. By using the ratio of {eq}3\n\n{/eq} feet for every yard, the conversion to yards is shown below:\n\n$$21 \\ \\text{yards} \\ \\times  \\ \\left( \\dfrac {3 \\ \\text{feet}}{ 1 \\ \\text{yard}}\\right) = 63 \\ \\text{feet}\n\n$$\n\nc. There are {eq}\\color{blue}{6 \\ \\text{miles}}\n\n{/eq} in {eq}31,680\n\n{/eq} feet. There are {eq}5,280\n\n{/eq} feet for every mile, the conversion is shown below:\n\n$$31,680 \\ \\text{feet} \\ \\times  \\ \\left( \\dfrac {1 \\ \\text{mile}}{ 5,280 \\ \\text{feet}}\\right) = 6 \\ \\text{miles}\n\n$$\n\nd. There are {eq}\\color{blue}{11.9 \\ \\text{meters}}\n\n{/eq} in {eq}10.9\n\n{/eq} yards. By using the ratio of {eq}1.094\n\n{/eq} yards for every meter in the conversion, the result is:\n\n$$10.9 \\ \\text{yards} \\ \\times  \\ \\left( \\dfrac {1 \\ \\text{meter}}{ 1.094 \\ \\text{yards}}\\right) = 11.9246 \\approx 11.9 \\ \\text{meters}\n\n$$\n\ne. There are {eq}\\color{blue}{38 \\ \\text{quarts}}\n\n{/eq} in {eq}36\n\n{/eq} liters. There are {eq}1.057\n\n{/eq} quarts for every liter, using this as the conversion factor:\n\n$$36 \\ \\text{liters} \\ \\times  \\ \\left( \\dfrac {1.057 \\ \\text{quarts}}{ 1 \\ \\text{liter}}\\right) = 38.052 \\approx 38 \\ \\text{quarts}\n\n$$",
+        "idx": 4
+    },
+    {
+        "config": "webinstruct_general",
+        "instruction": "Indicate whether the statement is true or false.\n\nAccording to the utilitarian approach to ethical decision making, the most ethical course of action is the one that results in the greatest good for the greatest number of people.",
+        "response": "The statement is \"true\", i.e. according to the utilitarian approach to ethical decision making, the most ethical course of action is the one that results in the greatest good for the greatest number of people.\n\nUtilitarian approach is probably the most simple and easiest way of understanding ethics in organizations. It is a duty-based approach and the most commonly found way to follow ethics in many organizations. Utilitarianism is an approach to ethics that claims that the moral status of what we do is determined by the consequences of what we do. The whole concept is based on the question, \"how will my actions affect others?\". Utilitarian stresses that in the interest of objects of moral concern, we must apply the principle of equality. It says that one's own interest or the interests of people within one's own social group, should not be considered more in favor over the interest of others while making decisions. This does not mean that interest can be outside the purview of moral judgment. It would be equally illegitimate to disregard one's own moral judgment as it is to disregard the interest of others.",
+        "idx": 5
+    },
+    {
+        "config": "webinstruct_general",
+        "instruction": "Dogs outperform not only wolves, but even most primates, when it comes to interpreting human signals. What is an evolutionary explanation for this ability?",
+        "response": "From the older times, dogs have always been in the vicinity of humans and their surrounding environment. Therefore, dogs are considered one of the best domestic species on earth. Dogs have a unique ability to understand and interpret signals of humans. Since dogs lived around humans, their cognitive and social skills derived with time, which led them to interpret human actions. Also, dogs are more cooperative, socially attentive, and human-friendly than wolves and other animals. All these factors allowed dogs to evolve during domestication.",
+        "idx": 6
+    },
+    {
+        "config": "webinstruct_general",
+        "instruction": "Property rights protect businesses by:\n \n\nA. setting a minimum price on all goods in an industry.\nB. ensuring that the government cannot regulate their actions.\nC. providing them with emergency loans from the government.\nD. preventing competitors from copying their products.",
+        "response": "It\u2019s D\n\nbecause property rights are like copyrights that protect a business\u2019 products, so it the work cannot be replicated",
+        "idx": 7
+    },
+    {
+        "config": "webinstruct_general",
+        "instruction": "I would like to ask for some clarifications in the following questions about complex curves. My first question is if I correctly understand what the complex curve in $\\mathbb CP^2$ is. Is it only a set which is locally given as the nullset of some analytic function with non-zero gradient at each zero? If this is correct, what is the complex curve with boundary? If I understand the definition of complex curve correctly, then the complex curve needn't to be a Riemann surface in general, it may have finite number of points in which it fails to be a smooth manifold. With these points excluded it is a Riemann surface. Right? I know the definition of the normalization of a complex curve (A holomorphic map from a Riemann surface to this complex curve such that ...), but in one article the authors used in this definition meromorphic map instead of holomorphic one. What is the meromorphic map in this context? Does one call by a meromorphic map from a Riemann surface to $\\mathbb C^2$ a holomorphic map from this Riemann surface to $\\mathbb CP^2$?",
+        "response": "no your understanding is a little bit off, while not being off. If we define a complex curve locally as the nullset of some analytic function with non-zero gradient by the implicit function theorem we will get that we can locally express one variable as analytic function of the other: $(z,w(z))$ on some open subset of the space. We can now define a complex atlas on our curve via the projection on the first variable, or saying that our curve is locally the graph on an analytic function and so it is a Riemann surface. To define a Riemann surface with boundary we use the same definition used for smooth manifolds: we ask for the atlas to contain homeomorphisms with the half-disk: $D_0^+=\\{z\\in\\mathbb{C}\\,:\\,|z|<1\\, ,\\, \\Im(z)\\geq 0\\}$.\nAt this point here you understand what you get. Note that we can define Riemann surfaces in many ways and in such ways we may have to be careful at some points as you mentioned, but there are many ways to eliminate such problems such as plugging holes.\nAnd here when we talk of meromorphic maps between Riemann Surfaces what we mean is the underlying map in the local coordinates to be meromorphic. You need to talk about meromorphic maps or functions every time you deal with compact surfaces because of the Riemann-Roch Theorem.\n\n\nHope it was clear enough!\n    ",
+        "idx": 8
+    },
+    {
+        "config": "webinstruct_general",
+        "instruction": "What is the role of the DNA in a cell?",
+        "response": "The role of DNA in all cells is to produce molecules of RNA that are involved in protein synthesis. Through the proteins, all the metabolism of the cell is controlled. DNA is also used to synthesize new DNA for daughter cells.",
+        "idx": 9
+    },
+    {
+        "config": "webinstruct_general",
+        "instruction": "The typical relationship between variable costs and volume may be described best as follows:\n\nA) Costs increase in an erratic, unpredictable fashion with changes in volume.\n\nB) Costs stay fairly constant with changes in volume.\n\nC) Costs increase with changes in volume up to a certain point and then remain constant.\n\nD) Costs increase in direct proportion to increases in volume.",
+        "response": "Answer: D) Costs increase in direct proportion to increases in volume\n\nA variable cost is only constant per unit. This type of cost vastly depends on the unit produced. If the unit is not produced, the variable cost will not exist or be incurred. For example, each unit will incur a $5 variable cost. If 1 unit is manufactured, the total variable cost is $5. If 2 units are produced, the total variable cost is $10. If 3 units are produced, the total variable cost is $15. The variable cost assigned per unit does not change from $5. However, the total variable cost will increase by $5 per additional 1 unit produced. Simply stated, the variable cost is directly affected by the volume of production. The higher is the volume, the higher is the cost also.",
+        "idx": 10
+    },
+    {
+        "config": "webinstruct_general",
+        "instruction": "Three equivalent resonance structures can be drawn for a nitrate ion. How much of the time does the bonding in a nitrate ion match any one of them?",
+        "response": "The nitrate anion contains a central nitrogen atom bonded to three oxygen atoms. It is capable of delocalizing the pi (double bond) electrons among all four atoms. Overall three individual resonance structures can be defined:\n\n\n\n\nThree resonance structures of nitrate anion\n<img>/cimages/multimages/16/nitrate-resonance6673874282857701320.png</img>\n\n\n\n\n\nThe nitrate anion spends 1/3 of its time in each of these forms.",
+        "idx": 11
+    },
+    {
+        "config": "webinstruct_general",
+        "instruction": "Write a sentence with an objective and possessive pronoun,\"",
+        "response": "Answer: \n\u201fMichelle gave ME  this book free for my birthday even though the book is \u00a0hers \u201f said Michael \nExplanation: \nAn objective pronoun acts as the object of a sentence\u2014it receives the action of the verb. The objective pronouns are her, him, it, me, them, us, and you. \nA possessive pronoun is a pronoun indicating possession (belonging), for example mine, yours, hers, theirs, his. \u00a0 Example: **I think this laptop is hers!** So, to put those both in a sentence, you can make a dialogue. \nHope this helped.",
+        "idx": 12
+    },
+    {
+        "config": "webinstruct_general",
+        "instruction": "How do you write #y = (x \u2212 11)^5# as a composition of two simpler functions?",
+        "response": "            \n            \n              I think that writing in words what the function does is #90%# of the job done.\nThis function takes a number #x# and:\n\nSubtract #11# from said number;\nComputes the fifth power of the result.\n\nAs you can see, we have actually written the two simplier functions: #f(x)=x^5# (\"computes the fifth power\"), and #g(x)=x-11# (\"subtract eleven from #x#\").\nIn formulas, #(x-11)^5 = f(g(x))#\n####\nThe answer is #(x-11)^5 = f(g(x))#, where #f(x)=x^5#, and #g(x)=x-11#",
+        "idx": 13
+    },
+    {
+        "config": "webinstruct_general",
+        "instruction": "Which of the following is not a way humans have impacted the tundra? a. oil drilling b. logging c. overgrazing d. mining",
+        "response": "Answer:\n \nOption (B)- Logging\n \nExplanation:\n \nThe humans have not impacted the tundra by carrying out the logging activity as in the tundra region, there is significantly less number of trees and the temperature is relatively very cold and most of the time the land areas are covered with snow and ice . This covers the regions of higher latitudes, extending from about 60 degrees up to the poles in both the hemisphere. Due to this less abundance of trees, the logging activity is not carried out  in this particular region.\n\nFurther explanation:\n \nLogging is defined as the activity where the trees are cut down and processed and are transported to the site where they are extensively used in order to make materials such as furniture, manufacturing of paper and other products .\n\nThe tundra region is usually characterised by the presence of the permafrost layer , which is a permanently frozen layer present under the surface of the earth. They are made up of materials such as soil, sand, gravel that are accumulated together by ice.\n\nThis logging activity has a direct effect on the atmosphere. It is because the deforestation process causes a reduction in the number of trees, as a result of which the CO2 present in the atmosphere will increase the global temperature of the earth, thereby causing the greenhouse effect.  Increasing logging activity also leads to soil erosion and degradation of the soil quality.\n\nDue to the absence of the trees, the tundra region is not affected by the logging activity. \n\nLearn more:\n \n1. Logging and its relation with the carbon cycle brainly.com/question/784659 (answer by \nW0lf93)\n\n2. Reason behind the occurrence of less trees in the tundra region brainly.com/question/13759390 \u00a0(answer by Linna3)\n\nKeywords:\n \nLogging, Tundra, Greenhouse effect, Latitude, Deforestation, Permafrost layer.",
+        "idx": 14
+    },
+    {
+        "config": "webinstruct_general",
+        "instruction": "What made Einstein unhappy at school?",
+        "response": "Albert Einstein wasn't unhappy with his subjects at school, although he didn't really care for some of them. He was unhappy at school because it was very rigid and disciplined and discouraged creativity, but he did love intellectual pursuits.",
+        "idx": 15
+    },
+    {
+        "config": "webinstruct_general",
+        "instruction": "I am to teach section 18 of \"Elementary Number Theory\" (Dudley) - Sums of Two Squares - to an undergraduate Number Theory class, and am having trouble cultivating anything other than a rote dissection of the lemmas/theorems presented in the text. The professor copies (exclusively) from the text onto the chalkboard during lectures, but I would like to present the students with something a little more interesting and that they cannot find in their text. What are the connections of the \"Sums of Two Squares\" to other fields of mathematics? Why would anyone care about solving $n = x^2 + y^2$ in the integers? I am aware of the norm of the Gaussian integers, and will probably mention something about how the identity $$(a^2 + b^2)(c^2 + d^2) = (ac -bd)^2 + (ad + bc)^2$$ is deeper than just the verification process of multiplying it out (e.g. I might introduce $\\mathbb{Z}[i] $ and mention that \"the norm is multiplicative\"). What else is there? The book mentions (but only in passing) sums of three and four squares, Waring's Problem, and Goldbach's Conjecture. Also, I have seen Akhil's answer and the Fermat Christmas question, but these don't admit answers to my question.",
+        "response": "At a much more elementary level, one might want to draw connections to what they already know. \n\nFor example, there is a very nice connection between the identity $(a^2 + b^2)(c^2 + d^2) = (ac -bd)^2 + (ad + bc)^2$ and the addition laws for cosine and sine. \n\nAs another example, suppose that $a$ and $b$ are positive, and we want to maximize $ax+by$ subject to $x^2+y^2=r^2$. Using $(a^2+b^2)(x^2+y^2)=(ax+by)^2+(ay-bx)^2$, we can see that the maximum of $ax+by$ is reached when $ay-bx=0$. \n\nThen there is the generalization (Brahmagupta identity).  Connection with Fibonacci numbers. Everything is connected to everything else! \n     In another direction, counting the solutions $n=ax^2+bxy+cx^2$, to quadratic forms with negative discriminant is often the starting place for a course on Algebraic Number Theory.  I believe Gauss was one of the first people to think about this area.  This leads to the definition of Class Number, and we can prove things like Dirichlet's Class Number Formula.\n\nSolutions to $x^2+y^2$ is one of the simplest examples to start with.\n     One of my favorite math videos of all time (3Blue1Brown \"Pi hiding in prime regularities\") https://www.youtube.com/watch?v=NaL_Cb42WyY studies the question of how many lattice points are on a certain circle in the plane (a problem about counting how many times a number is a sum of 2 squares), and transforms that into a factorization problem in $\\mathbb Z[i]$. Due to regularity of how primes factor in $\\mathbb Z[i]$, we ultimately get a formula for $\\pi$ in terms of the Dirichlet $L$-function for the non-primitive quadratic character $\\chi_4$ of conductor $4$.\nThis (and generalizations of this problem to other quadratic number rings $\\mathbb Z[r]$) connects arithmetic in $\\mathbb Z[r]$, lattice points on circles/ellipses, lattice regions approximating disks/ellipses, infinite sum formulas for $\\pi$, the Dirichlet class number formula, the non-vanishing of $L(1,\\chi)$ (the $L$-functions at $s=1$), which lead to things like Dirichlet's theorem of primes in arithmetic progressions, and the generalized Riemann hypothesis.\nThis material is explored in https://terrytao.wordpress.com/2014/11/23/254a-notes-1-elementary-multiplicative-number-theory/, https://terrytao.wordpress.com/2014/11/28/245a-supplement-1-a-little-bit-of-algebraic-number-theory-optional/.\n    ",
+        "idx": 16
+    },
+    {
+        "config": "webinstruct_general",
+        "instruction": "Graph y = x{eq}^{2/3}\n\n{/eq} using the first and second derivatives.",
+        "response": "To draw the graph of function :{eq}y=x^{2/3}\n\n{/eq} using the first and second derivatives:\n\nThe first derivative:\n\n{eq}y'=\\dfrac {2x^{-\\frac 13}}3\\ \\ \\ \\ \\bigg [\\because (x^n)'=nx^{n-1} \\bigg ]\\\\\n\ny''=\\dfrac {-2x^{-\\frac 43}}9\n\n{/eq}\n\nNow the sign of the first derivative:\n\n{eq}\\dfrac {2x^{-\\frac 13}}3>0\\implies x>0\\ (\\text{increasing interval })\\\\\n\n\\dfrac {2x^{-\\frac 13}}3<0\\implies x<0\\ (\\text{decreasing interval })\n\n{/eq}\n\nNow the sign of the the second derivative:\n\n{eq}\\dfrac {-2x^{-\\frac 43}}9<0\\forall x\\in \\mathbb R\n\n{/eq}\n\nHence the function is always concave downwards\n\nNow using all the above characteristics with the value of the function : {eq}f(0)=0\n\n{/eq}\n\nthe graph is drawn below:\n\n\n<img>/cimages/multimages/16/optimized-function_1561448906658389799.png</img>",
+        "idx": 17
+    },
+    {
+        "config": "webinstruct_general",
+        "instruction": "Need I press clutch pedal while starting my car in neutral?\n\nAs I know, clutch pressing and neutral gear both disengage the engine from wheels. So will it matter if I do not press the clutch if I start in neutral?",
+        "response": "It depends on the specific vehicle.  Many modern standard transmission cars in the US have a clutch pedal sensor that will not allow you to start the vehicle if the pedal isn't fully depressed.  You'll turn the key and nothing will happen.\nI've had older vehicles that preceded this sensor that could move the vehicle if the clutch was engaged and the transmission in gear.  This was cited as an emergency way to move the vehicle (e.g., if you stall on railroad tracks).",
+        "idx": 18
+    },
+    {
+        "config": "webinstruct_general",
+        "instruction": "On literal level, what area of the city is Nick describing?",
+        "response": "Chapter 2 of the Great Gatsby opens with a literal description of the city dump, referred to as the \"Valley of Ashes.\" The Dump is a symbolic representation of the american dream now left to decay on edge of the city fueled by materialism and greed. This related with the general theme of the story about self-centeredness and greed filling the world with trash.",
+        "idx": 19
+    }
+]

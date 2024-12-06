@@ -1,0 +1,18 @@
+[REQUIREMENTS]
+- The output should only contain a code block. The only exception is when there is not enought information, where you should start with "Please provide the code".
+- ALWAYS START WITH either "```python\n", "```java\n", "```cpp\n", "```c\n", "```javascript\n", "```csharp\n", "```swift\n", "```css\n", "```php\n", "```html\n", or "```latex\n".
+- ALWAYS END WITH with "\n``` [END]", where the "[END]" indicates the end of your response.
+- DO NOT WRITE ANY GREETING MESSAGES, COMMENTS, DOCSTRINGS, just write the code.
+- DO NOT INCLUDE ANY TEST CASES such as "# Example usage:", "# Test the function", or "# Test cases".
+- DO NOT include ANY EXPLANATION of the code including "This function ", "This solution ", or "This implementation ".
+
+[Example of the format of the OUTPUT]
+```python
+def reverse_string(s):
+    print(s[::-1])
+``` [END]
+
+INPUT:
+<input>
+
+OUTPUT:

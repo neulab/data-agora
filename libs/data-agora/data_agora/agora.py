@@ -10,10 +10,14 @@ from typing import Dict, List, Optional, Union
 
 from tqdm import tqdm
 
-from agora.core.llms.base import LLM
-from agora.core.parsers import Parser
-from agora.core.prompt_loaders import BasePromptLoader, InstanceGenerationPromptLoader, ThemeBasedInstanceGenerationPromptLoader
-from agora.core.validators import Validator, validate_keywords
+from .core.llms.base import LLM
+from .core.parsers import Parser
+from .core.prompt_loaders import (
+    BasePromptLoader,
+    InstanceGenerationPromptLoader,
+    ThemeBasedInstanceGenerationPromptLoader,
+)
+from .core.validators import Validator, validate_keywords
 
 
 # TODO: If prompt_loader is InstanceGenerationPromptLoader, then there should be option to update the seed_data with the generated instance
@@ -139,17 +143,22 @@ class Agora:
                             teacher_model_output = completion.choices[0].message.content
                         except:
                             raise ValueError("Invalid completion format")
-                    parsed_result = self.parser.parse(prompt_result.prompt, teacher_model_output, self.placeholder_formats)
+                    parsed_result = self.parser.parse(
+                        prompt_result.prompt, teacher_model_output, self.placeholder_formats
+                    )
                     instruction = parsed_result["instruction"]
                     response = parsed_result["response"]
-                    
+
                     if parsed_result is not None:
                         is_valid = self.validator.validate(instruction, response)
 
                         if is_valid is True:
                             # Add metadata
                             try:
-                                parsed_result["metadata"] = {"model": completion.get("model", "unknown"), **prompt_result.metadata}
+                                parsed_result["metadata"] = {
+                                    "model": completion.get("model", "unknown"),
+                                    **prompt_result.metadata,
+                                }
                             except:
                                 try:
                                     parsed_result["metadata"] = {"model": completion.model, **prompt_result.metadata}
@@ -193,6 +202,11 @@ class Agora:
         Returns:
             List of generated instances
         """
+
+        # Check if vLLM is being used
+        if self.llm.__class__.__name__ == "LocalVLLM":
+            return self.run_vllm(num_instances, output_file, cache_file)
+
         # Initialize or load existing results
         results = []
 
@@ -204,40 +218,46 @@ class Agora:
             cache_path.parent.mkdir(parents=True, exist_ok=True)
 
             if cache_path.exists():
-                if cache_path.suffix == '.jsonl':
+                if cache_path.suffix == ".jsonl":
                     try:
                         results = []
                         with cache_path.open("r") as f:
                             for line in f:
                                 results.append(json.loads(line))
-                                
+
                         print(f"Loaded {len(results)} existing results from cache")
-                        
+
                         # Trim results if more than num_instances
                         if len(results) >= num_instances:
                             results = results[:num_instances]
                             # Save to output file and delete cache
-                            results = [{"instruction": item["instruction"], "response": item["response"], "config": self.llm.model_name} for item in results]
+                            results = [
+                                {
+                                    "instruction": item["instruction"],
+                                    "response": item["response"],
+                                    "config": self.llm.model_name,
+                                }
+                                for item in results
+                            ]
                             with open(output_file, "w") as f:
                                 json.dump(results, f, indent=4)
                             cache_path.unlink()
                             return results
-                            
+
                     except json.JSONDecodeError:
                         print("Warning: Cache file exists but is not valid JSONL. Starting fresh.")
                 else:
                     print("Warning: Cache file must be a .jsonl file. Starting fresh.")
         else:
             cache_path = Path(output_file.replace(".json", ".jsonl")).expanduser()
-            
 
         # Calculate remaining instances to generate
         instances_to_generate = num_instances - len(results)
-        
+
         if instances_to_generate <= 0:
             print(f"Already generated {len(results)} instances, target is {num_instances}")
             return results
-            
+
         if isinstance(self.prompt_loader, InstanceGenerationPromptLoader):
             if hasattr(self.prompt_loader, "seed_data"):
                 self.prompt_loader.seed_data.extend(results)
@@ -246,7 +266,7 @@ class Agora:
             for i, item in enumerate(self.prompt_loader.seed_data):
                 if "index" not in item:
                     item["index"] = i
-                    
+
             # Get indices of unprocessed items
             processed_indices = {result["index"] for result in results if "index" in result}
             index_list_to_process = [i for i in range(num_instances) if i not in processed_indices]
@@ -277,7 +297,7 @@ class Agora:
                                         save_result = {
                                             "instruction": result["instruction"],
                                             "response": result["response"],
-                                            "config": self.llm.model_name
+                                            "config": self.llm.model_name,
                                         }
                                         if "index" in result:
                                             save_result["index"] = result["index"]
@@ -302,7 +322,7 @@ class Agora:
                                     save_result = {
                                         "instruction": result["instruction"],
                                         "response": result["response"],
-                                        "config": self.llm.model_name
+                                        "config": self.llm.model_name,
                                     }
                                     if "index" in result:
                                         save_result["index"] = result["index"]
@@ -324,7 +344,7 @@ class Agora:
                                         "instruction": result["instruction"],
                                         "response": result["response"],
                                         "config": self.llm.model_name,
-                                        "index": result["index"]
+                                        "index": result["index"],
                                     }
                                     json.dump(save_result, f)
                                     f.write("\n")
@@ -332,17 +352,188 @@ class Agora:
                                 print(f"\nWarning: Failed to save to cache file: {str(e)}")
 
         # Remove index from final results
-        results = [{"instruction": item["instruction"], "response": item["response"], "config": self.llm.model_name} for item in results]
-        
+        results = [
+            {"instruction": item["instruction"], "response": item["response"], "config": self.llm.model_name}
+            for item in results
+        ]
+
         unfinished_instances = num_instances - len(results)
         if unfinished_instances > 0:
-            print(f"\nWarning: {unfinished_instances} instances failed to complete after {self.config.max_retries} retries")
+            print(
+                f"\nWarning: {unfinished_instances} instances failed to complete after {self.config.max_retries} retries"
+            )
             print(f"Cache file preserved at: {cache_path}")
             return results
-            
+
         if cache_path.exists():
             cache_path.unlink()
-            
+
+        with open(output_file, "w") as f:
+            json.dump(results, f, indent=4)
+
+        return results
+
+    def run_vllm(
+        self,
+        num_instances: int,
+        output_file: Union[str, Path],
+        cache_file: Optional[Union[str, Path]] = None,
+        batch_size: int = 10,
+    ) -> List[Dict]:
+        """Generate multiple instances using vLLM's batch inference capabilities
+
+        Args:
+            num_instances: Number of instances to generate
+            output_file: Path to save final results
+            cache_file: Optional path to cache file for intermediate saving
+            batch_size: Number of instances to generate in each batch
+
+        Returns:
+            List of generated instances
+        """
+        # Initialize or load existing results
+        results = []
+
+        if cache_file is not None:
+            cache_path = Path(cache_file).expanduser()
+            cache_path.parent.mkdir(parents=True, exist_ok=True)
+
+            if cache_path.exists():
+                if cache_path.suffix == ".jsonl":
+                    try:
+                        results = []
+                        with cache_path.open("r") as f:
+                            for line in f:
+                                results.append(json.loads(line))
+
+                        print(f"Loaded {len(results)} existing results from cache")
+
+                        # Trim results if more than num_instances
+                        if len(results) >= num_instances:
+                            results = results[:num_instances]
+                            # Save to output file and delete cache
+                            results = [
+                                {
+                                    "instruction": item["instruction"],
+                                    "response": item["response"],
+                                    "config": self.llm.model_name,
+                                }
+                                for item in results
+                            ]
+                            with open(output_file, "w") as f:
+                                json.dump(results, f, indent=4)
+                            cache_path.unlink()
+                            return results
+
+                    except json.JSONDecodeError:
+                        print("Warning: Cache file exists but is not valid JSONL. Starting fresh.")
+                else:
+                    print("Warning: Cache file must be a .jsonl file. Starting fresh.")
+        else:
+            cache_path = Path(output_file.replace(".json", ".jsonl")).expanduser()
+
+        # Calculate remaining instances to generate
+        instances_to_generate = num_instances - len(results)
+
+        if instances_to_generate <= 0:
+            print(f"Already generated {len(results)} instances, target is {num_instances}")
+            return results
+
+        # Prepare indices for generation
+        if isinstance(self.prompt_loader, InstanceGenerationPromptLoader):
+            total_batches = (instances_to_generate + batch_size - 1) // batch_size
+            all_indices = list(range(instances_to_generate))
+        else:
+            processed_indices = {result["index"] for result in results if "index" in result}
+            all_indices = [i for i in range(num_instances) if i not in processed_indices]
+            total_batches = (len(all_indices) + batch_size - 1) // batch_size
+
+        # Process all batches
+        with tqdm(total=instances_to_generate, disable=not self.config.show_progress) as pbar:
+            for batch_start in range(0, len(all_indices), batch_size):
+                batch_indices = all_indices[batch_start : batch_start + batch_size]
+
+                # Prepare prompts for the batch
+                messages_list = []
+                prompt_results = []
+
+                for idx in batch_indices:
+                    if isinstance(self.prompt_loader, InstanceGenerationPromptLoader):
+                        prompt_result = self.prompt_loader.prepare()
+                    else:
+                        prompt_result = self.prompt_loader.prepare(idx)
+
+                    messages = [
+                        {"role": "system", "content": self.config.system_message},
+                        {"role": "user", "content": prompt_result.prompt},
+                    ]
+                    messages_list.append(messages)
+                    prompt_results.append(prompt_result)
+
+                # Get batch completions using vLLM
+                batch_outputs = self.llm.chat(
+                    messages=messages_list, sampling_params=self.sampling_params, use_tqdm=False
+                )
+
+                # Process outputs
+                for i, (output, prompt_result) in enumerate(zip(batch_outputs, prompt_results)):
+                    try:
+                        teacher_model_output = output.outputs[0].text
+                        prompt = output.prompt
+
+                        # Parse and validate
+                        parsed_result = self.parser.parse(prompt, teacher_model_output, self.placeholder_formats)
+                        instruction = parsed_result["instruction"]
+                        response = parsed_result["response"]
+
+                        if parsed_result is not None:
+                            is_valid = self.validator.validate(instruction, response)
+
+                            if is_valid:
+                                # Add metadata
+                                parsed_result["metadata"] = {"model": self.llm.model_name, **prompt_result.metadata}
+
+                                # Add index for non-InstanceGenerationPromptLoader
+                                if not isinstance(self.prompt_loader, InstanceGenerationPromptLoader):
+                                    parsed_result["index"] = batch_indices[i]
+
+                                results.append(parsed_result)
+                                pbar.update(1)
+
+                                # Save intermediate results
+                                try:
+                                    with cache_path.open("a") as f:
+                                        save_result = {
+                                            "instruction": parsed_result["instruction"],
+                                            "response": parsed_result["response"],
+                                            "config": self.llm.model_name,
+                                        }
+                                        if "index" in parsed_result:
+                                            save_result["index"] = parsed_result["index"]
+                                        json.dump(save_result, f)
+                                        f.write("\n")
+                                except Exception as e:
+                                    print(f"\nWarning: Failed to save to cache file: {str(e)}")
+
+                    except Exception as e:
+                        print(f"Error processing batch item {i}: {str(e)}")
+                        continue
+
+        # Remove index from final results
+        results = [
+            {"instruction": item["instruction"], "response": item["response"], "config": self.llm.model_name}
+            for item in results
+        ]
+
+        unfinished_instances = num_instances - len(results)
+        if unfinished_instances > 0:
+            print(f"\nWarning: {unfinished_instances} instances failed to complete")
+            print(f"Cache file preserved at: {cache_path}")
+            return results
+
+        if cache_path.exists():
+            cache_path.unlink()
+
         with open(output_file, "w") as f:
             json.dump(results, f, indent=4)
 

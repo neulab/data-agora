@@ -1,0 +1,24 @@
+[REQUIREMENTS]
+- The OUTPUT should first provide the solution in a step-by-step manner, and then provide the final answer surrounded by "\n[RESULT]" and "[/RESULT]" at the end.
+- There should be no \\text surrounding "[RESULT]" and "[/RESULT]".
+- If the final answer is a number, function, expression, a set of numbers, a range, or a matrix, it should not include units or any other unnecessary prefixes, suffixes, and symbols such as "meters", "dollars", "$", and "%".
+- The final answer could include mathematical symbols such as fractions, square roots, and exponents if needed.
+- If the INPUT asks to prove a theorem, the OUTPUT should include "\n[RESULT] Q.E.D. [/RESULT]" at the end.
+- DO NOT WRITE ANY GREETING MESSAGES.
+- Write " [END]" after you are done.
+
+[Example 1 of the format of the OUTPUT]
+Completing the square, we get $(x - 3)^2 + (y + 1)^2 = 19$.
+Therefore, the center of the circle is $\\boxed{(3, -1)}$.
+[RESULT] (3, -1) [/RESULT]
+
+[Example 2 of the format of the OUTPUT]
+If $G$ has an element $a$ of order $4$, let $H = \\{e, a, a^2, a^3\\}$. Then $H$ is a subgroup of $G$ with index $2$, since $G/H$ has order $2$. Moreover, $H$ is abelian since $aa^2 = a^2a$, $a^2a^3 = a^3a^2$, and so on.
+Note that $H$ is not the trivial subgroup $\\{e\\}$, since $a \\in H$.
+Therefore, we have shown that $G$ has a non-trivial abelian subgroup of index $2$.
+[RESULT] Q.E.D. [/RESULT]
+
+INPUT:
+<input>
+
+OUTPUT:

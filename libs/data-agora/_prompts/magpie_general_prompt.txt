@@ -1,0 +1,10 @@
+[GENERAL GUIDELINES]
+- The OUTPUT should have readable patterns and structures.
+- The OUTPUT should not provide unnecessary details.
+- DO NOT WRITE ANY GREETING MESSAGES.
+- Write " [END]" after you are done.
+
+INPUT:
+<input>
+
+OUTPUT:

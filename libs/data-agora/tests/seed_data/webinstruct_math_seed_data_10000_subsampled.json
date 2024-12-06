@@ -1,0 +1,122 @@
+[
+    {
+        "config": "webinstruct_math",
+        "instruction": "A angle-side-angle triangle has angle $\\frac{19 \\pi }{45}$, a side of length $12$ and an angle of measure $\\frac{61 \\pi }{180}$. Determine the area, circumradius, inradius, and semiperimeter of the triangle.",
+        "response": "Inradius: $6 \\sqrt{\\frac{2 \\left(1-\\sin \\left(\\frac{7 \\pi }{90}\\right)\\right) \\cos \\left(\\frac{29 \\pi }{180}\\right) \\csc \\left(\\frac{43 \\pi }{180}\\right) \\left(1+\\cos \\left(\\frac{29 \\pi }{180}\\right) \\csc \\left(\\frac{43 \\pi }{180}\\right)-\\sqrt{\\cos ^2\\left(\\frac{7 \\pi }{90}\\right) \\cos ^2\\left(\\frac{29 \\pi }{180}\\right) \\csc ^2\\left(\\frac{43 \\pi }{180}\\right)+\\left(\\sin \\left(\\frac{7 \\pi }{90}\\right) \\cos \\left(\\frac{29 \\pi }{180}\\right) \\csc \\left(\\frac{43 \\pi }{180}\\right)-1\\right)^2}\\right)}{1+\\cos \\left(\\frac{29 \\pi }{180}\\right) \\csc \\left(\\frac{43 \\pi }{180}\\right)+\\sqrt{\\cos ^2\\left(\\frac{7 \\pi }{90}\\right) \\cos ^2\\left(\\frac{29 \\pi }{180}\\right) \\csc ^2\\left(\\frac{43 \\pi }{180}\\right)+\\left(\\sin \\left(\\frac{7 \\pi }{90}\\right) \\cos \\left(\\frac{29 \\pi }{180}\\right) \\csc \\left(\\frac{43 \\pi }{180}\\right)-1\\right)^2}}}$\nSemiperimeter: $6 \\left(1+\\cos \\left(\\frac{29 \\pi }{180}\\right) \\csc \\left(\\frac{43 \\pi }{180}\\right)+\\sqrt{\\cos ^2\\left(\\frac{7 \\pi }{90}\\right) \\cos ^2\\left(\\frac{29 \\pi }{180}\\right) \\csc ^2\\left(\\frac{43 \\pi }{180}\\right)+\\left(\\sin \\left(\\frac{7 \\pi }{90}\\right) \\cos \\left(\\frac{29 \\pi }{180}\\right) \\csc \\left(\\frac{43 \\pi }{180}\\right)-1\\right)^2}\\right)$\nArea: $72 \\cos \\left(\\frac{7 \\pi }{90}\\right) \\cos \\left(\\frac{29 \\pi }{180}\\right) \\csc \\left(\\frac{43 \\pi }{180}\\right)$\nCircumradius: $\\sqrt{\\left(6-12 \\sin \\left(\\frac{7 \\pi }{90}\\right) \\cos \\left(\\frac{29 \\pi }{180}\\right) \\csc \\left(\\frac{43 \\pi }{180}\\right)\\right)^2+36 \\left(\\cos \\left(\\frac{7 \\pi }{90}\\right) \\cos \\left(\\frac{29 \\pi }{180}\\right) \\csc \\left(\\frac{43 \\pi }{180}\\right)+\\tan \\left(\\frac{7 \\pi }{90}\\right) \\left(1-\\sin \\left(\\frac{7 \\pi }{90}\\right) \\cos \\left(\\frac{29 \\pi }{180}\\right) \\csc \\left(\\frac{43 \\pi }{180}\\right)\\right)\\right)^2}$",
+        "idx": 0
+    },
+    {
+        "config": "webinstruct_math",
+        "instruction": "Find the characteristic polynomial of the following matrix:\n$\\left(\n\\begin{array}{ccc}\n-\\frac{7}{6} & 0 & \\frac{19}{6} \\\\\n\\frac{1}{3} & \\frac{17}{6} & \\frac{5}{2} \\\\\n-\\frac{35}{6} & \\frac{11}{2} & -\\frac{16}{3} \\\\\n\\end{array}\n\\right)$",
+        "response": "$-x^3-\\frac{11 x^2}{3}+\\frac{269 x}{36}+\\frac{2479}{27}$",
+        "idx": 1
+    },
+    {
+        "config": "webinstruct_math",
+        "instruction": "Multiply\n$\\left(\n\\begin{array}{ccccc}\n-\\frac{5}{3} & -2 & \\frac{8}{3} & -\\frac{4}{3} & -3 \\\\\n\\end{array}\n\\right)$ and\n$\\left(\n\\begin{array}{ccc}\n-1 & \\frac{7}{3} & \\frac{4}{3} \\\\\n3 & -\\frac{8}{3} & \\frac{1}{3} \\\\\n3 & -2 & -2 \\\\\n-\\frac{1}{3} & -\\frac{1}{3} & -3 \\\\\n-1 & \\frac{4}{3} & \\frac{8}{3} \\\\\n\\end{array}\n\\right)$.",
+        "response": "$\\left(\n\\begin{array}{ccc}\n\\frac{64}{9} & -\\frac{67}{9} & -\\frac{110}{9} \\\\\n\\end{array}\n\\right)$",
+        "idx": 2
+    },
+    {
+        "config": "webinstruct_math",
+        "instruction": "A polyhedron has vertices with the coordinates $\\left(\n\\begin{array}{ccc}\n0.884 & 0.726 & 0.332 \\\\\n0.771 & 0.254 & 0.743 \\\\\n0.433 & 0.219 & 0.152 \\\\\n0.827 & 0.516 & 0.192 \\\\\n0.938 & 0.483 & 0.459 \\\\\n0.099 & 0.018 & 0.035 \\\\\n0.454 & 0.759 & 0.935 \\\\\n0.556 & 0.242 & 0.982 \\\\\n0.131 & 0.729 & 0.389 \\\\\n0.636 & 0.882 & 0.07 \\\\\n\\end{array}\n\\right)$. Estimate the polyhedron's surface area, volume, and the solid angle at the first listed point p spanned by edges with common point p.",
+        "response": "Solid Angle: $2.96$\nSurface Area: $2.16$\nVolume: $0.22$",
+        "idx": 3
+    },
+    {
+        "config": "webinstruct_math",
+        "instruction": "(a) Find the magnitude of the electrostatic force between a Na{eq}^+\n\n{/eq} ion and a Cl{eq}^-\n\n{/eq} ion separated by 0.55 nm in newtons.\n\n(b) Would the answer change if the sodium ion were replaced by Li{eq}^+\n\n{/eq} and the chloride ion by Br{eq}^-\n\n{/eq}? Explain.",
+        "response": "Data: \n\n{eq}\\textrm{Charge of Na^{+}}:\\:Q_1=+1.6\\times 10^{-19}\\:C \\\\\n\n\\textrm{Charge of Cl^{-}}:\\:Q_2=-1.6\\times 10^{-19}\\:C \\\\\n\n\\textrm{Charge of Li^{+}}:\\:Q_3=+1.6\\times 10^{-19}\\:C \\\\\n\n\\textrm{Charge of Br^{-}}:\\:Q_4=-1.6\\times 10^{-19}\\:C \\\\\n\n\\textrm{Distance}:\\:r=0.55\\:\\eta m=0.55\\times 10^{-9}\\:m \\\\\n\n\\textrm{Electric Constant}:\\:k=9\\times 10^9\\:\\frac{Nm^2}{C^2}\n\n{/eq}\n\n\n\nEquation: \n\n{eq}F=\\frac{k \\cdot  \\left\\|{Q_1}\\right\\|  \\cdot \\left\\|{Q_2}\\right\\|}{r^2}\n\n{/eq}\n\n\n\nPart a: \n\n{eq}\\begin{align*}\n\nF&=\\frac{k \\cdot  \\left\\|{Q_1}\\right\\|  \\cdot \\left\\|{Q_2}\\right\\|}{r^2} \\\\ \\\\\n\nF&=\\frac{9\\times 10^9\\:\\frac{Nm^2}{C^2} \\cdot  \\left\\|{+1.6\\times 10^{-19}\\:C}\\right\\|  \\cdot \\left\\|{-1.6\\times 10^{-19}\\:C}\\right\\|}{\\left(0.55\\times 10^{-9}\\:m\\right)^2} \\\\ \\\\\n\nF&=7.62\\times 10^{-10}\\:N\n\n\\end{align*}\n\n{/eq}\n\n\n\nPart b: \n\nThe force would not change its magnitude if the ions are changed because the new ions have the same value as the old ions. In other words, the force in this case would also be: {eq}7.62\\times 10^{-10}\\:N\n\n{/eq}",
+        "idx": 4
+    },
+    {
+        "config": "webinstruct_math",
+        "instruction": "Find the jacobian of the vector valued function $\\begin{pmatrix} f(x,y,z)\\\\ g(x,y,z) \\\\ h(x,y,z)\\end{pmatrix}$ where $f(x,y,z) = \\sin (x-y)$, $g(x,y,z) = \\frac{1}{y}$, and $h(x,y,z) = \\sqrt[3]{z^3}$",
+        "response": "$\\left(\n\\begin{array}{ccc}\n\\cos (x-y) & -\\cos (x-y) & 0 \\\\\n0 & -\\frac{1}{y^2} & 0 \\\\\n0 & 0 & \\frac{z^2}{\\sqrt[3]{z^3}^2} \\\\\n\\end{array}\n\\right)$",
+        "idx": 5
+    },
+    {
+        "config": "webinstruct_math",
+        "instruction": "Two corners of an isosceles triangle are at #(5  ,8   )# and #(4   ,1   )#.  If the triangle's area is #36   #, what are the lengths of the triangle's sides?",
+        "response": "side b = #sqrt(50)=5sqrt(2)~~7.07# to 2 decimal places\nsides a and c =#1/10sqrt(11618) ~~10.78# to 2 decimal places\n            \n          \n          \n          \n          \n            \n            Explanation:\n            \n            \n              In geometry it is always wise to draw a diagram. It comes under good communication and gets you extra marks.\n#color(brown)(\"As long as you label all the relevant points and include\")# #color(brown)(\"the pertinent data you do not always need to draw the\")# #color(brown)(\"orientation exactly as it would appear for the given points\")#\n<img>https://useruploads.socratic.org/r9j5JiIwQxGISRWGm5cy_Equilateral%20Triangle.bmp</img>\nLet #(x_1,y_1)->(5,8)#\nLet #(x_2,y_2)->(4,1)#\nNote that it does not matter that vertex C should be on the left and vertex A on the right. It will work out. I did it this way round as it is the order you used.\n'~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n#color(blue)(\"Method plan\")#\nStep 1: Determine length of side b.\nStep 2: Area known so use to determine h.\nStep 3: Use Pythagoras to determine length side c and a\n'~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n#color(blue)(\"Step1\")#\n#b=sqrt( (x_2-x_1)^2+(y_2-y_1)^2)#\n#b=sqrt((4-5)^2+(1-8)^2)#\n#color(green)(b=sqrt(50))#\n'~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n#color(blue)(\"Step2\")#\nArea given as 36#\" units\"^2#\nSo #\" \"36=sqrt(50)/2xxh#\nSo #color(green)(h= (2xx36)/sqrt(50) = 72/(sqrt(50))#\n'~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n#color(blue)(\"Step3\")#\n#\"side c \"=\" side a\"= sqrt( (b/2)^2+h^2)#\n#c=sqrt( (sqrt(50)/2)^2 +(72/(sqrt(50)))^2)#\n#c= sqrt(50/4+5184/50)#\n#c=sqrt((1250+10368)/100)#\n#c=sqrt(11618/100)#\n#c=1/10sqrt(11618) #\n#=>c~~10.78# to 2 decimal places",
+        "idx": 6
+    },
+    {
+        "config": "webinstruct_math",
+        "instruction": "If  {eq}0.896 \\ grams\n\n{/eq} of a gas occupies a  {eq}250 \\ ml\n\n{/eq} flask at  {eq}20^\\circ \\  C\n\n{/eq} and  {eq}760 \\ mm \\ hg\n\n{/eq} of pressure, what is the molar mass of the gas?",
+        "response": "First, calculate the number of moles of gas and then calculate the molar mass of the gas.\n\nConsider the gas as an ideal gas.\n\nThe ideal gas equation is written below.\n\n{eq}PV = nRT\n\n{/eq}\n{eq}\\  \\  \\  \\\n\n{/eq}    or,{eq}n = \\displaystyle  \\frac{PV}{RT}\n\n{/eq}\n\nWhere, V=Volume=0.250 L {1000 ml = 1L}, P=Pressure = 1 atm{760 mm Hg = 1 atm}, n=number of moles = ?, R=Gas constant = {eq}0.082 L  \\ atm \\  mol^{-1} \\ K^{-1}\n\n{/eq}, T = temperature = (20 + 273)K = 293K.\n\nHence, {eq}n=\\displaystyle  \\frac{1 atm \\times 0.25L }{ 0.082 L  \\ atm  \\ mol^{-1} \\ K^{-1} \\times 293K } = 0.01041 mol.\n\n{/eq}\n\nNow, molar mass ={eq}\\displaystyle \\frac{mass}{mole} = \\frac{0.896g}{0.01041 mol} =86.11 g/mol\n\n{/eq}\n\nTherefore the molar mass of the gas is 86.11 g/mol.",
+        "idx": 7
+    },
+    {
+        "config": "webinstruct_math",
+        "instruction": "Find the $\\ell_2$ norm of the following vector:\n$\\left(\n\\begin{array}{c}\n9 \\\\\n\\frac{16}{5} \\\\\n\\end{array}\n\\right)$.",
+        "response": "$\\frac{\\sqrt{2281}}{5}$",
+        "idx": 8
+    },
+    {
+        "config": "webinstruct_math",
+        "instruction": "A piston cylinder device contains 2 kg of nitrogen gas at 100 kPa and 27 {eq}^o{/eq}C. The gas is now compressed slowly in a polytropic process during which PV{eq}^{1.3}{/eq} = constant. The process ends at a temperature of 100 {eq}^o{/eq}C.\n\nDetermine the total entropy change of nitrogen during this process.",
+        "response": "{eq}\\textbf {Given:}\n\n{/eq}\n\nMass, {eq}M=2\\space kg\n\n{/eq}\nInitial pressure, {eq}p_1= 100\\mspace{3mu}kPa.\n\n{/eq}\nInitial temperature, {eq}T_1= 27^oC=300\\mspace{3mu} K.\n\n{/eq}\nFinal temperature, {eq}T_2= 100^oC=373\\mspace{3mu} K.\n\n{/eq}\nFinal pressure can be obtained from the relation, {eq}\\dfrac {T_2}{T_1}=\\left (\\dfrac {p_2}{p_1}\\right )^{\\left (\\frac {n-1}{n}\\right)}\\\\\n\n\\dfrac {373}{300}=\\left (\\dfrac {p_2}{100}\\right )^{\\left (\\frac {1.3-1}{1.3}\\right)}\\\\\n\np_2=256.97\\mspace{3mu}kPa.\n\n{/eq}\n\nTotal change in entropy of nitrogen,\n\n{eq}\\Delta S= mC_p\\ln\\left(\\dfrac {T_2}{T_1}\\right)- mR\\ln\\left(\\dfrac {p_2}{p_1}\\right)\\\\\n\n= 2\\times 1.04\\ln\\left(\\dfrac {373}{300}\\right)- 2\\times 0.297\\ln\\left(\\dfrac {256.97}{100}\\right)\\\\\n\n\\bf \\Delta S=-0.1076\\mspace{3mu}kJ/kgK\n\n{/eq}",
+        "idx": 9
+    },
+    {
+        "config": "webinstruct_math",
+        "instruction": "What percent of 80 is 56?",
+        "response": "            \n            \n              We can also ask this as \"56 is what percent of 80?#\nDividing #56/80 # will give decimal answer  of #0.70#\nChange it into a percentage by #xx 100%#\n#56/80  xx 100% = 0.70 xx 100% = 70%#\nWe could also have worked with equivalent fractions where one fraction has a denominator of 100.\n#56/80 xx 1.25/1.25  = 70/100 = 70%#\n####\nThe answer is #70%#",
+        "idx": 10
+    },
+    {
+        "config": "webinstruct_math",
+        "instruction": "Young & Liu Inc.'s free cash flow during the just-ended year {eq}\\displaystyle (t = 0)\n\n{/eq} was {eq}\\$100\n\n{/eq} million, and FCF is expected to grow at a constant rate of {eq}5\\%\n\n{/eq} in the future. If the weighted average cost of capital is {eq}15\\%\n\n{/eq}, what is the firm's value of operations, in millions?",
+        "response": "The required value can be calculated as follows:\n\n{eq}\\begin{align*}\n\n{\\rm\\text{Value of operations}} &= \\frac{{{\\rm\\text{Expected}}\\;{\\rm\\text{cash}}\\;{\\rm\\text{flow}}}}{{{\\rm\\text{Cost}}\\;{\\rm\\text{of}}\\;{\\rm\\text{capital}} - {\\rm\\text{Growth}}\\;{\\rm\\text{rate}}}}\\\\\n\n&= \\frac{{100,000,000 \\times 1.05}}{{0.15 - 0.05}}\\\\\n\n&= \\$ 1,050,000,000\n\n\\end{align*}\n\n{/eq}\n\nTherefore, required answer is $1,050,000,000",
+        "idx": 11
+    },
+    {
+        "config": "webinstruct_math",
+        "instruction": "Compute the geometric mean of ${-729, 100, 8}$.",
+        "response": "$18 \\sqrt[3]{-1} 10^{2/3}$",
+        "idx": 12
+    },
+    {
+        "config": "webinstruct_math",
+        "instruction": "You are considering borrowing $150,000 to purchase a new home.\n\na) Calculate the monthly payment needed to amortize an 8 percent fixed-rate 30-year mortgage loan.\n\nb) Calculate the monthly amortization payment if the loan in part a) was for 15 years.",
+        "response": "The following formula can be used to calculate the equal monthly payment of the loan:\n\n{eq}Annuity=\\displaystyle \\frac{LV}{\\frac{1-(1+\\frac{r}{m})^{-nm}}{\\frac{r}{m}}}\\\\\n\nwhereas:\\\\\n\nLV=loan~value\\\\\n\nr=interest~rate\\\\\n\nn=number~of~periods\\\\\n\nm=frequency~of~payment\\\\\n\n{/eq}\n\n\n\nQuestion (a)\n{eq}\\begin{align*}\n\nAnnuity&=\\frac{150,000}{\\frac{1-(1+\\frac{.08}{12})^{-30*12}}{\\frac{.08}{12}}}\\\\\n\n&=\\frac{150,000}{\\frac{1-(1.00667)^{-360}}{.00667}}\\\\\n\n&=\\frac{150,000}{\\frac{1-.09144}{.00667}}\\\\\n\n&=\\frac{150,000}{\\frac{.90856}{.00667}}\\\\\n\n&=\\frac{150,000}{136.2835}\\\\\n\n&=1,100.65\\\\\n\n\\end{align*}\n\n{/eq}\n\nThe equal monthly payments of the mortgage loan over the next 30 years at 8% interest rate is $1,100.65\n\n\n\nQuestion (b)\n{eq}\\begin{align*}\n\nAnnuity&=\\frac{150,000}{\\frac{1-(1+\\frac{.08}{12})^{-15*12}}{\\frac{.08}{12}}}\\\\\n\n&=\\frac{150,000}{\\frac{1-(1.00667)^{-180}}{.00667}}\\\\\n\n&=\\frac{150,000}{\\frac{1-.30240}{.00667}}\\\\\n\n&=\\frac{150,000}{\\frac{.69760}{.00667}}\\\\\n\n&=\\frac{150,000}{104.6406}\\\\\n\n&=1,433.48\\\\\n\n\\end{align*}\n\n{/eq}\n\nThe equal monthly payments of the mortgage loan over the next 15 years at 8% interest rate is $1,433.48",
+        "idx": 13
+    },
+    {
+        "config": "webinstruct_math",
+        "instruction": "Evaluate the function $f(x)=-\\sqrt{-4 x^5-6} \\tan (\\sin (4-7 x))$ at the point $x=-23$",
+        "response": "$-\\sqrt{25745366} \\tan (\\sin (165)) = -7864.12$",
+        "idx": 14
+    },
+    {
+        "config": "webinstruct_math",
+        "instruction": "the plates of a parallel-plate capacitor are 1mm apart. the area of each plate is 6*10{eq}^{-4}m^2\n\n{/eq}. A potential difference of Vo=72V is applied between the plates.\n\nHow much energy is stored by the electric field between the two square plates?",
+        "response": "d = separation between plates = 1 mm = {eq}1\\times 10^{-3}\\ m.\n\n{/eq}\nA = area of each plate = {eq}6\\times 10^{-4}\\ m^2.\n\n{/eq}\nU = amount of energy stored by the capacitor.\nC = capacitance of capacitor.\n{eq}\\epsilon_0\n\n{/eq} = vacuum permittivity = {eq}8.85\\times 10^{-12}\\ F/m.\n\n{/eq}\nNow using the formula of capacitance and energy stored by the capacitor,\n\n{eq}\\begin{align}\n\nC &= \\frac{\\epsilon_0 A}{d}\\\\\n\n&= \\frac{8.85\\times 10^{-12} \\times 6\\times 10^{-4}}{1\\times 10^{-3}}\\\\\n\n&= \\frac{53.1\\times 10^{-16}}{1\\times 10^{-3}}\\\\\n\n&= 5.31\\times 10^{-12}\\ F.\\\\\n\nU &= \\frac{1}{2}CV_0^2\\\\\n\n&= \\frac{1}{2}\\times 5.31\\times 10^{-12}\\times 72^2\\\\\n\n&= 13763.52\\times 10^{-12}\\ J.\\\\\n\n&= 1.376\\times 10^{-8}\\ J.\n\n\\end{align}\n\n{/eq}",
+        "idx": 15
+    },
+    {
+        "config": "webinstruct_math",
+        "instruction": "Add the two matrices\n$\\left(\n\\begin{array}{c}\n8 \\\\\n-3 \\\\\n-3 \\\\\n9 \\\\\n\\end{array}\n\\right)$ and\n$\\left(\n\\begin{array}{c}\n-2 \\\\\n5 \\\\\n5 \\\\\n0 \\\\\n\\end{array}\n\\right)$",
+        "response": "$\\left(\n\\begin{array}{c}\n6 \\\\\n2 \\\\\n2 \\\\\n9 \\\\\n\\end{array}\n\\right)$",
+        "idx": 16
+    },
+    {
+        "config": "webinstruct_math",
+        "instruction": "In this question $A$ and $B$ are non-zero $2\\times 2$ real matrices. Prove, or find a counter example to the statement: For any $A$ and $B$ there is at most two matrices $X$ such that $X^2+AX+B=0$. I have the impression that it should be false and so I've been searching for counter examples by letting $A$ and $B$ be particularly simple matrices (like all entries zero except one) but every thing I've tried so far has made $X$ have only one solution. If it were true I'm not sure you'd go about proving it in a relatively simple way. Any hints would be great!",
+        "response": "Let $A \\colon= I_2$, the $2 \\times 2$ identity matrix, and let $B \\colon= -I_2$. \n\nThen you'll see that the equation $X^2 + AX + B = 0$ will have more than two solutions $X$. \n\nCheck it out for yourself. \n     If you stick to polynomials with scalar (i.e., multiples of the identity) coefficients, and $K$ is an infinite field then every polynomial equation over $K$ of degree $n>1$ has infinitely many solutions in $M_n(K)$. The reason is essentially the Cayley-Hamilton theorem, which forces matrices to satisfy an equation with a lot less degrees of freedom than the matrices have $(n$ rather than $n^2$). But a more formal argument is as follows: assuming without loss of generality our polynomial $P$ to be monic, the companion matrix $C_P$ of $P$ is a solution of the matrix equation $P[X]=0$, and so are all its conjugates, of which there are a lot because $C_P$ is clearly not central. More precisely, the matrices commuting with $C_P$ are only the polynomials in $C_P$, because its minimal and characteristic polynomials are both$~P$; then the conjugation orbit of $C_P$, being in bijection with $GL(n,K)/Z(C_P)$ where $Z(C_P)$ is the centraliser of $C_P$ in $GL(n,K)$, has dimension $n^2-n$. \n     The non-symmetric algebraic Riccati equation is (1) $XAX+B_1X+XB_2+C=0_2$ where $A,B_1,B_2,C$ are given in $M_2(\\mathbb{C})$ and the unknown is $X\\in M_2(\\mathbb{C})$. If $A,B_1,B_2,C$ are generic (to get an idea, consider random choices) matrices, then this equation can be rewritten (2) $X^2+AX+B=0$. Now, if $A,B$ are generic, then (2) admits exactly $6$ solutions in $M_2(\\mathbb{C})$. That is to say that we find an infinity of solutions only in exceptional cases. \n\nIn the particular case when moreover $A,B$ commute (note that $B$ is a polynomial in $A$), the solutions necessarily commute with $A,B$ and (2) admits exactly $4$ solutions (cf. the copper.hat's comment).\n    ",
+        "idx": 17
+    },
+    {
+        "config": "webinstruct_math",
+        "instruction": "Find the eigenvectors of the following matrix (round your answer to three decimal places):\n$\\left(\n\\begin{array}{ccc}\n-\\frac{3}{2} & 6 & -6 \\\\\n-\\frac{7}{2} & 7 & 9 \\\\\n\\frac{11}{2} & -\\frac{13}{2} & 4 \\\\\n\\end{array}\n\\right)$.",
+        "response": "${\\{23.086,19.635,1.\\}, \\{-0.893-0.577 i,-0.614+1.003 i,1.\\}, \\{-0.893+0.577 i,-0.614-1.003 i,1.\\}}$",
+        "idx": 18
+    },
+    {
+        "config": "webinstruct_math",
+        "instruction": "Subtract the second matrix from the first:\n$\\left(\n\\begin{array}{ccc}\n-6 & 8 & -1 \\\\\n\\end{array}\n\\right)$\n$\\left(\n\\begin{array}{ccc}\n-1 & 5 & -7 \\\\\n\\end{array}\n\\right)$",
+        "response": "$\\left(\n\\begin{array}{ccc}\n-5 & 3 & 6 \\\\\n\\end{array}\n\\right)$",
+        "idx": 19
+    }
+]

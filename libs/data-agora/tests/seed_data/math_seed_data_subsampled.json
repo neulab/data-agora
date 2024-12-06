@@ -1,0 +1,102 @@
+[
+    {
+        "config": "math",
+        "instruction": "Let \\[f(x) = \\left\\{\n\\begin{array}{cl} ax+3, &\\text{ if }x>2, \\\\\nx-5 &\\text{ if } -2 \\le x \\le 2, \\\\\n2x-b &\\text{ if } x <-2.\n\\end{array}\n\\right.\\]Find $a+b$ if the piecewise function is continuous (which means that its graph can be drawn without lifting your pencil from the paper).",
+        "response": "For the piecewise function to be continuous, the cases must \"meet\" at $2$ and $-2$. For example, $ax+3$ and $x-5$ must be equal when $x=2$. This implies $a(2)+3=2-5$, which we solve to get $2a=-6 \\Rightarrow a=-3$. Similarly, $x-5$ and $2x-b$ must be equal when $x=-2$. Substituting, we get $-2-5=2(-2)-b$, which implies $b=3$. So $a+b=-3+3=\\boxed{0}$.\n[RESULT] 0 [/RESULT]"
+    },
+    {
+        "config": "math",
+        "instruction": "A rectangular band formation is a formation with $m$ band members in each of $r$ rows, where $m$ and $r$ are integers. A particular band has less than 100 band members. The director arranges them in a rectangular formation and finds that he has two members left over. If he increases the number of members in each row by 1 and reduces the number of rows by 2, there are exactly enough places in the new formation for each band member. What is the largest number of members the band could have?",
+        "response": "Let $x$ be the number of band members in each row for the original formation, when two are left over.  Then we can write two equations from the given information: $$rx+2=m$$ $$(r-2)(x+1)=m$$ Setting these equal, we find: $$rx+2=(r-2)(x+1)=rx-2x+r-2$$ $$2=-2x+r-2$$ $$4=r-2x$$ We know that the band has less than 100 members.  Based on the first equation, we must have $rx$ less than 98.  We can guess and check some values of $r$ and $x$ in the last equation.  If $r=18$, then $x=7$, and $rx=126$ which is too big.  If $r=16$, then $x=6$, and $rx=96$, which is less than 98.  Checking back in the second formation, we see that $(16-2)(6+1)=14\\cdot 7=98$ as it should.  This is the best we can do, so the largest number of members the band could have is $\\boxed{98}$.\n[RESULT] 98 [/RESULT]"
+    },
+    {
+        "config": "math",
+        "instruction": "What is the degree of the polynomial $(4 +5x^3 +100 +2\\pi x^4 + \\sqrt{10}x^4 +9)$?",
+        "response": "This polynomial is not written in standard form.  However, we don't need to write it in standard form, nor do we need to pay attention to the coefficients.  We just look for the exponents on $x$.  We have an $x^4$ term and no other term of higher degree, so $\\boxed{4}$ is the degree of the polynomial.\n[RESULT] 4 [/RESULT]"
+    },
+    {
+        "config": "math",
+        "instruction": "Evaluate $\\left\\lceil3\\left(6-\\frac12\\right)\\right\\rceil$.",
+        "response": "Firstly, $3\\left(6-\\frac12\\right)=18-1-\\frac12=17-\\frac12$.  Because $0\\le\\frac12<1$, we have $\\left\\lceil17-\\frac12\\right\\rceil=\\boxed{17}$.\n[RESULT] 17 [/RESULT]"
+    },
+    {
+        "config": "math",
+        "instruction": "Sam is hired for a 20-day period. On days that he works, he earns $\\$$60. For each day that he does not work, $\\$$30 is subtracted from his earnings. At the end of the 20-day period, he received $\\$$660. How many days did he not work?",
+        "response": "Call $x$ the number of days Sam works and $y$ the number of days he does not. We can set up the following system of equations to represent the given information: \\begin{align*}\nx+y &= 20 \\\\\n60x - 30y &= 660 \\\\\n\\end{align*} The first equation represents the total number of days Sam works, and the second equation represents his total profit. Solving for $x$ in the first equation yields $x = 20 - y$. Substituting into the second equation gives $60(20-y) - 30y = 660$. Canceling a factor of $10$ and multiplying out gives $120 - 6y - 3y = 66$. This simplifies to $-9y = -54$, or $y = 6$. Thus, Sam did not work for $\\boxed{6}$ days.\n[RESULT] 6 [/RESULT]"
+    },
+    {
+        "config": "math",
+        "instruction": "Find the center of the circle with equation $x^2 - 6x + y^2 + 2y = 9$.",
+        "response": "Completing the square, we get $(x - 3)^2 + (y + 1)^2 = 19$. Therefore, the center of the circle is $\\boxed{(3, -1)}$.\n[RESULT] (3, -1) [/RESULT]"
+    },
+    {
+        "config": "math",
+        "instruction": "What are all values of $p$ such that for every $q>0$, we have   $$\\frac{3(pq^2+p^2q+3q^2+3pq)}{p+q}>2p^2q?$$ Express your answer in interval notation in decimal form.",
+        "response": "First we'll simplify that complicated expression. We attempt to factor the numerator of the left side: \\begin{align*}\npq^2+p^2q+3q^2+3pq &= q(pq + p^2 + 3q + 3p) \\\\\n&= q[ p(q+p) + 3(q+p) ] \\\\\n&= q(p+3)(q+p).\n\\end{align*}Substituting this in for the numerator in our inequality gives $$\\frac{3q(p+3)(p+q)}{p+q}>2p^2q.$$We note that left hand side has $p+q$ in both the numerator and denominator.  We can only cancel these terms if $p+q \\neq 0.$  Since we're looking for values of $p$ such that the inequality is true for all $q > 0,$ we need $p \\geq 0$ so that $p + q \\neq 0.$\n\nAlso because this must be true for every $q>0$, we can cancel the $q$'s on both sides. This gives  \\begin{align*}\n3(p+3)&>2p^2\\Rightarrow\\\\\n3p+9&>2p^2 \\Rightarrow\\\\\n0&>2p^2-3p-9.\n\\end{align*}Now we must solve this quadratic inequality. We can factor the quadratic as $2p^2-3p-9=(2p+3)(p-3)$. The roots are $p=3$ and $p=-1.5$. Since a graph of this parabola would open upwards, we know that the value of $2p^2 - 3p - 9$ is negative between the roots, so the solution to our inequality is $-1.5<p<3.$  But we still need $0 \\leq p,$ so in interval notation the answer is $\\boxed{[0,3)}$.\n[RESULT] [0,3) [/RESULT]"
+    },
+    {
+        "config": "math",
+        "instruction": "If $x = 2$ and $y = 5$, then what is the value of $\\frac{x^4+2y^2}{6}$ ?",
+        "response": "We have  \\[\\frac{x^4 + 2y^2}{6} = \\frac{2^4 + 2(5^2)}{6} = \\frac{16+2(25)}{6} = \\frac{16+50}{6} = \\frac{66}{6} = \\boxed{11}.\\]\n[RESULT] 11 [/RESULT]"
+    },
+    {
+        "config": "math",
+        "instruction": "The sequence of integers in the row of squares and in each of the two columns of squares form three distinct arithmetic sequences. What is the value of $N$?\n\n[asy]\nunitsize(0.35inch);\ndraw((0,0)--(7,0)--(7,1)--(0,1)--cycle);\ndraw((1,0)--(1,1));\ndraw((2,0)--(2,1));\ndraw((3,0)--(3,1));\ndraw((4,0)--(4,1));\ndraw((5,0)--(5,1));\ndraw((6,0)--(6,1));\ndraw((6,2)--(7,2)--(7,-4)--(6,-4)--cycle);\ndraw((6,-1)--(7,-1));\ndraw((6,-2)--(7,-2));\ndraw((6,-3)--(7,-3));\ndraw((3,0)--(4,0)--(4,-3)--(3,-3)--cycle);\ndraw((3,-1)--(4,-1));\ndraw((3,-2)--(4,-2));\nlabel(\"21\",(0.5,0.8),S);\nlabel(\"14\",(3.5,-1.2),S);\nlabel(\"18\",(3.5,-2.2),S);\nlabel(\"$N$\",(6.5,1.8),S);\nlabel(\"-17\",(6.5,-3.2),S);\n[/asy]",
+        "response": "Since $18 - 14 = 4$, the common difference in the first column of squares is 4, so the number above 14 is $14 - 4 = 10$, and the number above 10 is $10 - 4 = 6$.  This is also the fourth number in the row, so the common difference in the row is $(6 - 21)/3 = -5$.\n\nThen the seventh (and last) number in the row is $21 - 5 \\cdot 6 = -9$.  In the second column, the common difference is $[(-17) - (-9)]/4 = -2$, so $N = -9 - (-2) = \\boxed{-7}$.\n[RESULT] -7 [/RESULT]"
+    },
+    {
+        "config": "math",
+        "instruction": "Tim wants to invest some money in a bank which compounds quarterly with an annual interest rate of $7\\%$. To the nearest dollar, how much money should he invest if he wants a total of $\\$60,\\!000$ at the end of $5$ years?",
+        "response": "Recall the formula $A=P\\left(1+\\frac{r}{n}\\right)^{nt}$, where $A$ is the end balance, $P$ is the principal, $r$ is the interest rate, $t$ is the number of years, and $n$ is the number of times the interest is compounded in a year. This formula represents the idea that the interest is compounded every $1/n$ years with the rate of $r/n$.\n\nSubstituting the given information, we have \\[60,\\!000=P\\left(1+\\frac{0.07}{4}\\right)^{4 \\cdot 5}.\\]Solving for $P$ gives  $P=42409.474...$, which rounded to the nearest dollar is $\\boxed{\\$42409}$.\n[RESULT] \\$42409 [/RESULT]"
+    },
+    {
+        "config": "math",
+        "instruction": "The points $(9, -5)$ and $(-3, -1)$ are the endpoints of a diameter of a circle. What is the sum of the coordinates of the center of the circle?",
+        "response": "The center of the circle is located at the midpoint of any diameter. Thus, the center of the circle is $\\left(\\frac{9+(-3)}{2}, \\frac{(-5)+(-1)}{2}\\right) = (3, -3)$. The sum of the coordinates of the center of the circle is therefore $3 + (-3) = \\boxed{0}$.\n[RESULT] 0 [/RESULT]"
+    },
+    {
+        "config": "math",
+        "instruction": "Consider the given functions: $$\\begin{array}{ccc}\nf(x) & = & 5x^2 - \\frac{1}{x}+ 3\\\\\ng(x) & = & x^2-k\n\\end{array}$$If $f(2) - g(2) = 2$, what is the value of $k$?",
+        "response": "We substitute $f(2) = 5(2)^2 - \\frac{1}{2} + 3 = \\frac{45}{2}$ and $g(2) = (2)^2 - k = 4 - k$. So $f(2) - g(2) = 2$ gives us $\\frac{45}{2} - 4 + k=2$. Solving for $k$, we find $k = \\frac{4}{2} - \\frac{45}{2} + \\frac{8}{2}$ so $\\boxed{k = \\frac{-33}{2}}$.\n[RESULT] k = \\frac{-33}{2} [/RESULT]"
+    },
+    {
+        "config": "math",
+        "instruction": "Berengere and her American foreign-exchange student Emily are at a bakery in Paris that accepts both euros and American dollars. They want to buy a cake, but neither of them has enough money. If the cake costs 6 euros and Emily has an American five-dollar bill, how many euros does Berengere need to contribute to the cost of the cake if 1 euro = 1.25 USD?",
+        "response": "The easiest way to solve this problem is to convert everything into euros. Emily's five-dollar bill is equivalent to $5\\text{ USD} \\times \\frac{1\\text{ euro}}{1.25\\text{ USD}}=4\\text{ euros}$. Since the girls need 6 euros between them, Berengere must contribute $6-4=\\boxed{2 \\text{ euros}}$.\n[RESULT] 2 \\text{ euros} [/RESULT]"
+    },
+    {
+        "config": "math",
+        "instruction": "Simplify $\\sqrt[3]{1+8} \\cdot \\sqrt[3]{1+\\sqrt[3]{8}}$.",
+        "response": "The first cube root becomes $\\sqrt[3]{9}$. $\\sqrt[3]{8}=2$, so the second cube root becomes $\\sqrt[3]{3}$. Multiplying these gives $\\sqrt[3]{27} = \\boxed{3}$.\n[RESULT] 3 [/RESULT]"
+    },
+    {
+        "config": "math",
+        "instruction": "Let $f(x)=x^3+3$ and $g(x) = 2x^2 + 2x +1$. What is $g(f(-2))$?",
+        "response": "We note that $f(-2)=(-2)^3+3=-5$, so $g(f(-2))=g(-5)=2\\cdot(-5)^2+2\\cdot(-5)+1=41.$ Therefore our answer is $\\boxed{41}$.\n[RESULT] 41 [/RESULT]"
+    },
+    {
+        "config": "math",
+        "instruction": "Let \\[f(x) =\n\\begin{cases}\nx/2 &\\quad \\text{if } x \\text{ is even}, \\\\\n3x+1 &\\quad \\text{if } x \\text{ is odd}.\n\\end{cases}\n\\]What is $f(f(f(f(1))))$?",
+        "response": "Evaluating each value, $f(1) = 3 \\cdot 1 + 1 = 4$; $f(f(1)) = f(4) = 4/2 = 2$; $f(f(f(1))) = f(2) = 2/2 = 1$; and finally $f(f(f(f(1)))) = f(1) = \\boxed{4}$.\n[RESULT] 4 [/RESULT]"
+    },
+    {
+        "config": "math",
+        "instruction": "The greatest integer function, $\\lfloor x\\rfloor$, denotes the largest integer less than or equal to $x$. For example, $\\lfloor3.5\\rfloor=3$, $\\lfloor\\pi\\rfloor=3$ and $\\lfloor -\\pi\\rfloor=-4$. Find the sum of the three smallest positive solutions to $x-\\lfloor x\\rfloor=\\frac1{\\lfloor x\\rfloor}.$ Express your answer as a mixed number.",
+        "response": "We will begin with the smallest possible positive values of $x$.  For positive values of $x$, when $0<x<1$, the right side of our equation is equal to $\\frac{1}{0}$, which is undefined. When $1 \\le x < 2$  , the right side of our equation is equal to $1$, but $x - \\lfloor x \\rfloor $ cannot equal $1$.\n\nWhen $2 \\le x<3$, the right side of our equation is equal to $\\frac{1}{2}$, so we have $x - \\lfloor x \\rfloor = \\frac{1}{2}$.  This occurs when $x = 2 \\frac{1}{2}$.\n\nWhen $3 \\le x<4$, the right side of our equation is equal to $\\frac{1}{3}$, so we have $x - \\lfloor x \\rfloor = \\frac{1}{3}$.  This occurs when $x = 3 \\frac{1}{3}$.\n\nWhen $4 \\le x<5$, the right side of our equation is equal to $\\frac{1}{4}$, so we have $x - \\lfloor x \\rfloor = \\frac{1}{4}$.  This occurs when $x = 4 \\frac{1}{4}$.\n\nThen the sum of the three smallest positive solutions to $x$ is $2 \\frac{1}{2} +3 \\frac{1}{3}+4 \\frac{1}{4} = \\boxed{10\\frac{1}{12}}.$\n[RESULT] 10\\frac{1}{12} [/RESULT]"
+    },
+    {
+        "config": "math",
+        "instruction": "Let \\[f(x) =\n\\begin{cases}\n2x^2 - 3&\\text{if } x\\le 2, \\\\\nax + 4 &\\text{if } x>2.\n\\end{cases}\n\\]Find $a$ if the graph of $y=f(x)$ is continuous (which means the graph can be drawn without lifting your pencil from the paper).",
+        "response": "If the graph of $f$ is continuous, then the graphs of the two cases must meet when $x=2,$ which (loosely speaking) is the dividing point between the two cases. Therefore, we must have $2\\cdot 2^2 -3 = 2a + 4.$ Solving this equation gives $a = \\boxed{\\frac{1}{2}}.$\n[RESULT] \\frac{1}{2} [/RESULT]"
+    },
+    {
+        "config": "math",
+        "instruction": "Let \\[f(x) =\n\\begin{cases}\n3x^2 + 2&\\text{if } x\\le 3, \\\\\nax - 1 &\\text{if } x>3.\n\\end{cases}\n\\]Find $a$ if the graph of $y=f(x)$ is continuous (which means the graph can be drawn without lifting your pencil from the paper).",
+        "response": "If the graph of $f$ is continuous, then the graphs of the two cases must meet when $x=3$, which (loosely speaking) is the dividing point between the two cases.  Therefore, we must have $3(3^2) + 2 = 3a - 1$.  Solving this equation gives $a = \\boxed{10}$.\n[RESULT] 10 [/RESULT]"
+    },
+    {
+        "config": "math",
+        "instruction": "Three faucets fill a 100-gallon tub in 6 minutes.  How long, in seconds, does it take six faucets to fill a 25-gallon tub?  Assume that all faucets dispense water at the same rate.",
+        "response": "Since three faucets can fill a 100-gallon tub in 6 minutes, six can do it twice as fast, i.e. 3 minutes.  Additionally, the tub is a quarter the size and thus it will be filled four times as fast which gives $3/4$ minutes or $\\boxed{45}$ seconds.\n[RESULT] 45 [/RESULT]"
+    }
+]

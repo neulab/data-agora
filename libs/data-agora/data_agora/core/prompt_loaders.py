@@ -1,9 +1,9 @@
+import json
 import random
 import re
 from abc import ABC, abstractmethod
 from dataclasses import dataclass
 from enum import Enum
-import json
 from typing import Any, Dict, List, Optional
 
 
@@ -34,7 +34,12 @@ class InstanceGenerationPromptLoader(BasePromptLoader):
     """Prompt loader for instance generation scenario"""
 
     def __init__(
-        self, prompt_template: str, seed_data: List[Dict], num_fewshot: int, placeholder_formats: Dict[str, str] = None, num_sample_from_seed_data: Optional[int] = None
+        self,
+        prompt_template: str,
+        seed_data: List[Dict],
+        num_fewshot: int,
+        placeholder_formats: Dict[str, str] = None,
+        num_sample_from_seed_data: Optional[int] = None,
     ):
         """Initialize the instance generation prompt loader.
 
@@ -52,7 +57,7 @@ class InstanceGenerationPromptLoader(BasePromptLoader):
             raise ValueError(
                 f"Not enough seed data ({len(seed_data)}) for requested number of few-shot examples ({num_fewshot})"
             )
-        
+
         if num_sample_from_seed_data is None:
             num_sample_from_seed_data = num_fewshot
         if num_sample_from_seed_data > len(seed_data):
@@ -63,7 +68,7 @@ class InstanceGenerationPromptLoader(BasePromptLoader):
             raise ValueError(
                 f"Number of samples from seed data ({num_sample_from_seed_data}) must be less than or equal to the number of few-shot examples ({num_fewshot})"
             )
-    
+
         self.num_sample_from_seed_data = num_sample_from_seed_data
 
         self.placeholder_formats = placeholder_formats or {
@@ -128,13 +133,13 @@ class InstanceGenerationPromptLoader(BasePromptLoader):
     def prepare(self) -> PromptResult:
         """Prepare a few-shot prompt using randomly selected seed data"""
         # Create a copy and shuffle to randomly select examples
-        
+
         init_seed_data = self._init_seed_data.copy()
-        generated_data = self.seed_data.copy()[:self._init_seed_data_len]
-        
+        generated_data = self.seed_data.copy()[: self._init_seed_data_len]
+
         selected_seed_examples = random.sample(init_seed_data, self.num_sample_from_seed_data)
         selected_gen_examples = random.sample(generated_data, self.num_fewshot - self.num_sample_from_seed_data)
-        
+
         shuffled_data = selected_seed_examples + selected_gen_examples
         random.shuffle(shuffled_data)
         selected_examples = shuffled_data[: self.num_fewshot]
@@ -187,7 +192,7 @@ class ThemeBasedInstanceGenerationPromptLoader(InstanceGenerationPromptLoader):
             input_theme_list: List of possible themes to choose from
             first_word_list: List of possible triggers to choose from
         """
-        
+
         super().__init__(
             prompt_template=prompt_template,
             seed_data=seed_data,
@@ -213,9 +218,7 @@ class ThemeBasedInstanceGenerationPromptLoader(InstanceGenerationPromptLoader):
                 metadata["chosen_theme"] = chosen_theme
         elif self.placeholder_formats.get("input_theme"):
             if self.placeholder_formats["input_theme"] not in prompt:
-                raise ValueError(
-                    f"Prompt does not include input_theme placeholder"
-                )
+                raise ValueError(f"Prompt does not include input_theme placeholder")
 
         # Add random trigger if trigger placeholder exists and trigger list is not empty
         if self.placeholder_formats.get("first_word") and self.first_word_list:
@@ -225,10 +228,7 @@ class ThemeBasedInstanceGenerationPromptLoader(InstanceGenerationPromptLoader):
                 metadata["chosen_trigger"] = chosen_trigger
         elif self.placeholder_formats.get("first_word"):
             if self.placeholder_formats["first_word"] not in prompt:
-                raise ValueError(
-                    f"Prompt does not include first_word placeholder"
-                )
-            
+                raise ValueError(f"Prompt does not include first_word placeholder")
 
         return PromptResult(prompt=prompt, metadata=metadata)
 
@@ -323,8 +323,7 @@ class QualityEnhancementPromptLoader(BasePromptLoader):
         current_item = self.seed_data[index]
         if "instruction" not in current_item or "response" not in current_item:
             raise ValueError(
-                f"Data item at index {index} missing required keys. "
-                "Expected both 'instruction' and 'response'"
+                f"Data item at index {index} missing required keys. " "Expected both 'instruction' and 'response'"
             )
 
         prompt = self.prompt_template
@@ -338,6 +337,7 @@ class QualityEnhancementPromptLoader(BasePromptLoader):
         }
 
         return PromptResult(prompt=prompt, metadata=metadata)
+
 
 class JSONPromptLoader(InstanceGenerationPromptLoader):
     """Prompt loader that incorporates themes and triggers, inheriting from InstanceGenerationPromptLoader"""
@@ -372,13 +372,12 @@ class JSONPromptLoader(InstanceGenerationPromptLoader):
         """Prepare a few-shot prompt using randomly selected seed data and themes/triggers"""
         # Get base prompt result from parent class
 
-
     def prepare(self) -> PromptResult:
         """Prepare a few-shot prompt using randomly selected seed data"""
         # Create a copy and shuffle to randomly select examples
 
         init_seed_data = self._init_seed_data.copy()
-        generated_data = self.seed_data.copy()[:self._init_seed_data_len]
+        generated_data = self.seed_data.copy()[: self._init_seed_data_len]
 
         selected_seed_examples = random.sample(init_seed_data, self.num_sample_from_seed_data)
         selected_gen_examples = random.sample(generated_data, self.num_fewshot - self.num_sample_from_seed_data)

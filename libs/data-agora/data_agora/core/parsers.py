@@ -1,5 +1,5 @@
-from abc import ABC, abstractmethod
 import json
+from abc import ABC, abstractmethod
 from typing import Dict, Optional, Tuple
 
 from transformers import AutoTokenizer
@@ -9,7 +9,9 @@ class Parser(ABC):
     """Abstract base class for validating model outputs"""
 
     @abstractmethod
-    def parse(self, prompt, teacher_model_output, placeholder_formats: Optional[Dict[str, str]] = None) -> Dict[str, str]:
+    def parse(
+        self, prompt, teacher_model_output, placeholder_formats: Optional[Dict[str, str]] = None
+    ) -> Dict[str, str]:
         """
         Parse the instruction and response from model output
 
@@ -111,6 +113,7 @@ class QualityEnhancementDictParser(Parser):
         response = x["response"]
 
         return {"instruction": instruction, "response": response}
+
 
 class JSONParser(Parser):
     """Parser when LLM generates data as JSON strings"""
