@@ -4,6 +4,7 @@ layout: default
 
 
 ## Motivation
+
 {: .sys-img}
 ![Motivation of AgoraBench.](/assets/img/motivation.png)
 
@@ -17,6 +18,7 @@ To answer these kind of questions, we need a more systematic approach to evaluat
 
 
 ## Data Generation Methods
+
 {: .sys-img}
 ![Data Generation Methods covered in AgoraBench.](/assets/img/methods.png)
 
@@ -28,6 +30,7 @@ In AgoraBench, we cover the following data generation methods:
 
 
 ## Metrics
+
 {: .sys-img}
 ![Performance Gap Recovered (PGR) metric used in AgoraBench.](/assets/img/pgr.png)
 
@@ -39,6 +42,7 @@ Specifically, we use Llama-3.1-8B as our base model and Llama-3.1-8B-Instruct as
 
 
 ## AgoraBench Results
+
 {: .sys-img}
 ![AgoraBench results.](/assets/img/agorabench_results.png)
 
@@ -47,9 +51,11 @@ We find that different models have distinct strengths and weaknesses in each dat
 
 
 ## Conclusion
+
 For more information about our work, please check out our paper! Also, we plan to continually update our model based on your feedback! Feel free to reach out to us via email or twitter!
 
 ## Bibtex
+
 <pre>
 @misc{kim2024evaluating,
       title={Evaluating Language Models as Synthetic Data Generators}, 
