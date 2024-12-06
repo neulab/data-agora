@@ -1,14 +1,14 @@
 <p align="center">
-  <img src="assets/agora.png" alt="Agora-Logo" style="width: 70%; display: block; margin: auto;">
+  <img src="assets/agora.png" alt="Agora-Logo" style="width: 100%; display: block; margin: auto;">
 </p>
 
 <h1 align="center">🏛️ Agora 🏛️</h1>
 
 <p align="center">
-  <a href="https://arxiv.org/abs/2405.01535"><img src="https://img.shields.io/badge/arXiv-2405.01535-b31b1b.svg" alt="arXiv"></a>
-  <a href="https://huggingface.co/prometheus-eval"><img src="https://img.shields.io/badge/Hugging%20Face-Organization-ff9d00" alt="Hugging Face Organization"></a>
-  <a href="https://github.com/prometheus-eval/prometheus-eval/blob/main/LICENSE"><img src="https://img.shields.io/github/license/prometheus-eval/prometheus-eval.svg" alt="License"></a>
-  <a href="https://pypi.org/project/prometheus-eval/"><img src="https://badge.fury.io/py/prometheus-eval.svg" alt="PyPI version"></a>
+  <a href="https://arxiv.org/abs/2412.03679"><img src="https://img.shields.io/badge/arXiv-2412.03679-b31b1b.svg" alt="arXiv"></a>
+  <a href="https://huggingface.co/Data-Agora"><img src="https://img.shields.io/badge/Hugging%20Face-Organization-ff9d00" alt="Hugging Face Organization"></a>
+  <a href="https://github.com/neulab/data-agora/blob/main/LICENSE"><img src="https://img.shields.io/github/license/neulab/data-agora.svg" alt="License"></a>
+  <a href="https://pypi.org/project/data-agora/"><img src="https://badge.fury.io/py/data-agora.svg" alt="PyPI version"></a>
 </p>
 
 <p align="center">
