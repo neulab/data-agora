@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/agora.png" alt="Agora-Logo" style="width: 100%; display: block; margin: auto;">
+  <img src="assets/agorabench.png" alt="Agora-Logo" style="width: 50%; display: block; margin: auto;">
 </p>
 
 <h1 align="center">🏛️ Agora 🏛️</h1>
@@ -24,7 +24,7 @@
   - Checkout our [dataset](https://huggingface.co/Data-Agora), [checkpoints](https://huggingface.co/Data-Agora), [leaderboard](https://huggingface.co/spaces/prometheus-eval/BiGGen-Bench-Leaderboard), and the [code](https://github.com/neulab/data-agora)!
 
 
-## 🔧 Installation
+# 🔧 Installation
 
 Installation with pip:
 
@@ -32,7 +32,7 @@ Installation with pip:
 pip install data-agora
 ```
 
-## Project Structure 📁
+# Project Structure 📁
 
 ```
 agora/
@@ -49,15 +49,15 @@ agora/
 └── agora.py                # Main class orchestrating the pipeline
 ```
 
-## Usage Guide 🚀
+# Usage Guide 🚀
 
 Our library is convenient for two types of audiences:
 1. **Using Pre-built Pipeline**: Using the pre-built pipeline from the paper, you can easily measure the data generation capabilities of different LLMs.
 2. **Custom Usage**: You could customize the pipeline for your own tasks to generate large amounts of synthetic data.
 
-### **Using Pre-built Pipeline**
+## **Using Pre-built Pipeline**
 
-#### Step 1: Generate Data with Pre-built Pipeline
+### Step 1: Generate Data with Pre-built Pipeline
 To use AlchemyBench for replicating the results from the paper or using the exact same pipeline for custom use with potentially different seed data:
 ```
 cd "./alchemy_scripts"
@@ -68,18 +68,18 @@ python3 run.py --method {} --domain {} --model_name {} --max_tokens 4096 --tempe
 - domain should be either "math", "general", "code'. When using custom data and there is no distinct constraint of how the data should look like, use "general".
 - model_name should be exactly the same with how you call it on OpenAI API, LiteLLM, or vLLM.
 
-#### Step 2: Train Student Models with Synthetic Data
+### Step 2: Train Student Models with Synthetic Data
 To be added!
 
-#### Step 3: Evaluate Student Models and Measure Performance Gap Recovered (PGR)
+### Step 3: Evaluate Student Models and Measure Performance Gap Recovered (PGR)
 To be added!
 
 
 
-### **Custom Usage**
+## **Custom Usage**
 For custom usage with different pipelines, parsing mechanisms, and validation logics, Alchemy supports convenient customization through abstract classes.
 
-1.**Prompt Loader:**: A class that prepares the meta-prompt passed to the data generator.
+### **Prompt Loader:**: A class that prepares the meta-prompt passed to the data generator.
 ```python
 class CustomPromptLoader(InstanceGenerationPromptLoader):
    def __init__(self, prompt_template: str, seed_data: List[Dict], num_fewshot: int, placeholder_formats: Dict[str, str] = None, num_sample_from_seed_data: Optional[int] = None, [...]):
@@ -91,7 +91,7 @@ class CustomPromptLoader(InstanceGenerationPromptLoader):
       return PromptResult(prompt=prompt, metadata=metadata)
 ```
 
-2.**Parser:**: A class that separates the instruction and response from the data generator's output.
+### **Parser:**: A class that separates the instruction and response from the data generator's output.
 ```python
 class CustomParser(Parser):
 
@@ -100,7 +100,7 @@ class CustomParser(Parser):
       return {"instruction: instruction, "response": response}
 ```
 
-3.**Validator:**: A class that determines if the output is valid or not.
+### **Validator:**: A class that determines if the output is valid or not.
 ```python
 class CustomValidator(Validator):
    def validate(self, instruction: str, response: str, [...]):
@@ -111,7 +111,7 @@ class CustomValidator(Validator):
         return False
 ```
 
-4.**Data Generation with Agora:**
+### **Data Generation with Agora:**
 
 Then, you could write a script that utilizes the custom classes to generate data.
 
