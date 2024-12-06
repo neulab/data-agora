@@ -201,17 +201,15 @@ pre {
   text-align: center;
   margin: 30px auto;
   width: 100%;
-  max-width: 1000px;
-  height: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  max-width: 800px;
+  display: block;
 }
 
 .sys-img img {
   width: 100%;
   height: auto;
-  object-fit: contain;
+  display: block;
+  margin: 0 auto;
 }
 
 .button-container {
