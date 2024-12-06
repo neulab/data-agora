@@ -29,7 +29,7 @@ In AgoraBench, we cover the following data generation methods:
 
 ## Metrics
 {: .sys-img}
-![Performance Gap Recovered (PGR) metric used in AgoraBench.](/assets/img/metrics.png)
+![Performance Gap Recovered (PGR) metric used in AgoraBench.](/assets/img/pgr.png)
 
 <br>
 To quantify the quality of the generated data (i.e., data generation capability), we propose a new metric called **Performance Gap Recovered (PGR)**. On a high level, PGR measures how much a student model trained on the synthetic data improves over its base model compared to a reference model that shares the same base model. 
