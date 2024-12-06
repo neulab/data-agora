@@ -18,9 +18,9 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Prometheus
+title: Evaluating Language Models as Data Generators
 theme: minima
-description: "Inducing Fine-grained Evaluation Capability in Language Models"
+description: "We introduce AgoraBench, a benchmark for assessing an LMs' data generation capability."
 
 syscolor: "#555555"
 sysfont: Inter
