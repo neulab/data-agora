@@ -16,7 +16,7 @@
 </p>
 
 
-**Latest News** 🔥
+## **Latest News** 🔥
 
 - [2024/12] We release the **Agora** and **Agora-Bench**!
   - **Agora-Bench** covers 9 settings, measuring data generation capabilities across 3 domains and 3 data generation methods.
