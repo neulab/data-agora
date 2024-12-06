@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/agorabench.png" alt="Agora-Logo" style="width: 30%; display: block; margin: auto;">
+  <img src="assets/agorabench.png" alt="Agora-Logo" style="width: 50%; display: block; margin: auto;">
 </p>
 
 <h1 align="center">🏛️ Agora 🏛️</h1>
