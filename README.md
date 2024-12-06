@@ -18,8 +18,8 @@
 
 ## **Latest News** 🔥
 
-- [2024/12] We release the **Agora** and **Agora-Bench**!
-  - **Agora-Bench** covers 9 settings, measuring data generation capabilities across 3 domains and 3 data generation methods.
+- [2024/12] We release the **Agora** and **AgoraBench**!
+  - **AgoraBench** covers 9 settings, measuring data generation capabilities across 3 domains and 3 data generation methods.
   - **Agora** is an easily customizable framework for data generation with LLMs.
   - Checkout our [dataset](https://huggingface.co/Data-Agora), [checkpoints](https://huggingface.co/Data-Agora), [leaderboard](https://huggingface.co/spaces/prometheus-eval/BiGGen-Bench-Leaderboard), and the [code](https://github.com/neulab/data-agora)!
 
