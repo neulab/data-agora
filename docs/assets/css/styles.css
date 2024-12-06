@@ -9,16 +9,10 @@ html {
 
 body {
   font-family: 'Noto Sans', sans-serif;
-  text-align: center;
 }
 
 .wrapper {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 30px;
-  box-sizing: border-box;
-  text-align: center;
+  max-width: calc(940px - (30px * 2));
 }
 
 h1 {
@@ -59,8 +53,6 @@ p {
   margin-bottom: 20px;
   color: #555;
   font-weight: 300;
-  text-align: center;
-  line-height: 1.6;
   & > b {
     font-weight: 500;
   }
@@ -86,24 +78,23 @@ iframe {
 
 .authors-wrapper {
   text-align: center;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 20px;
-  margin: 30px 0;
 }
 
 .author-container {
-  width: 120px; /* Fixed width instead of percentage */
-  text-align: center;
+  display: inline-block;
+  width: 12%;
+  margin: 0 2% 0 2%;
+}
+
+.author-container p {
+  margin-bottom: 0px;
+  font-size: 14px;
 }
 
 .author-image {
   position: relative;
   width: 100%;
   padding-bottom: 100%;
-  margin-bottom: 8px;
 }
 
 .author-image img {
@@ -113,24 +104,6 @@ iframe {
   top: 0;
   left: 0;
   border-radius: 50%;
-  object-fit: cover;
-}
-
-.author-container p {
-  margin: 4px 0;
-  font-size: 14px;
-  line-height: 1.3;
-}
-
-/* Responsive adjustments */
-@media (max-width: 600px) {
-  .author-container {
-    width: 90px;
-  }
-  
-  .author-container p {
-    font-size: 12px;
-  }
 }
 
 .center {
@@ -199,8 +172,7 @@ pre {
 
 .sys-img {
   width: 90%;
-  margin: 0 auto;
-  display: block;
+  margin-left: 5%;
 }
 
 
@@ -316,6 +288,9 @@ strong {
     font-size: 14px;
   }
 
+  .author-container p {
+    font-size: 10px;
+  }
 
   pre {
     font-size: 10px;
@@ -323,6 +298,12 @@ strong {
 
   .wrapper {
     max-width: calc(100vw - 30px);
+  }
+
+  .author-container {
+    display: inline-block;
+    width: 22%;
+    margin: 0 1% 0 1%;
   }
 
   .img-left {
@@ -340,7 +321,6 @@ strong {
   .sys-img {
     width: 100%;
     margin-left: 0;
-    
   }
 
   .acknowledgement {
