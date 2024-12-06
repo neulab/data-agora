@@ -2,12 +2,21 @@
 layout: default
 ---
 
-How can you evaluate whether your LLM is humorous or not? Among various versions during development, how can you track whether your LLM is inspiring while being culturally sensitive?
+
 
 {: .sys-img}
-![fine_grained_eval.](/assets/img/figure1.png)
+![Motivation of AgoraBench.](/assets/img/motivation.png)
 
-Current evaluation resources (e.g., MMLU, Big Bench, AlpacaFarm) are confined to generic, single-dimensional evaluation metrics that are either too domain/task specific (e.g., EM, Rouge) or coarse-grained (e.g., helpfulness/harmlessness). To overcome this issue, recent work has introduced **Fine-grained Evaluation** (e.g., VicunaBench, MTBench, Flask), which measures a LLM's performance based on diverse skill sets (e.g., Creativity, Writing Ability, Role Playing Ability, Logical Ability) based on GPT-4 evaluation.
+Prior works on synthetic data generation have primarily focused on proposing better methods for generating high-quality data, which led to various experimental settings. For instance, Self-Instruct, Alpaca, WizardLM, and Orca varied in their choice of LMs for data generation, quantity of synthetic training data, base models used for training, and benchmarks for evaluating the model trained on the synthetic data.
+
+<br>
+As shown in the Figure above, this makes it difficult to directly compare how good different LMs are as a data generator. Specifically, while GPT-4o is 3.4 times expensive than GPT-4o, is it really worth the cost? On the other hand, as we have a lot of good high-performing LMs nowadays, should we really use proprietary LMs for data generation or would open-source LMs such as Llama 3 be a good alternative?
+
+<br>
+To answer these kind of questions, we need a more systematic approach to evaluate how good a LM is as a data generator. More specifically, we need a unified experimental setting where only the data generator varies and all the other components are fixed. In this work, we introduce AgoraBench, a benchmark that serves this purpose by provided 9 experimental settings.
+
+{: .sys-img}
+![Motivation of AgoraBench.](/assets/img/motivation.png)
 
 However, employing GPT-4 as an evaluator LM has the following disadvantages:
 * <b>Close-source Nature</b>: The proprietary nature of LLMs brings transparency concerns as internal workings are not disclosed to the broader academic community.
