@@ -198,8 +198,9 @@ pre {
 }
 
 .sys-img {
-  width: 70%;
-  text-align: center;
+  width: 90%;
+  margin: 0 auto;
+  display: block;
 }
 
 
