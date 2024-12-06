@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/agorabench.png" alt="Agora-Logo" style="width: 50%; display: block; margin: auto;">
+  <img src="assets/agorabench.png" alt="Agora-Logo" style="width: 30%; display: block; margin: auto;">
 </p>
 
 <h1 align="center">🏛️ Agora 🏛️</h1>
@@ -22,6 +22,16 @@
   - **Agora-Bench** covers 9 settings, measuring data generation capabilities across 3 domains and 3 data generation methods.
   - **Agora** is an easily customizable framework for data generation with LLMs.
   - Checkout our [dataset](https://huggingface.co/Data-Agora), [checkpoints](https://huggingface.co/Data-Agora), [leaderboard](https://huggingface.co/spaces/prometheus-eval/BiGGen-Bench-Leaderboard), and the [code](https://github.com/neulab/data-agora)!
+
+## What does Agora mean?
+
+<p align="center">
+  <img src="assets/agora.png" alt="Agora-Logo" style="width: 80%; display: block; margin: auto;">
+</p>
+
+*In ancient Athens, the Agora was a public space where citizens would gather to debate, share news, learn from each other, and listen to famous philosophers.*
+
+We made an analogy between data generators and teachers, where the generators teach student models using synthetic data in AgoraBench!
 
 
 # 🔧 Installation
