@@ -20,16 +20,14 @@
 
 title: Evaluating Language Models as Data Generators
 theme: minima
-description: "We introduce AgoraBench, a benchmark for assessing an LMs' data generation capability."
+description: "We introduce AgoraBench, a benchmark for assessing LMs' data generation capability."
 
 syscolor: "#555555"
 sysfont: Inter
 video: https://www.youtube-nocookie.com/embed/7hvTnhiCO7Y?si=6I9aqVnatM8VoaJd
-paper: https://arxiv.org/abs/2310.08491
-code: https://github.com/kaistAI/Prometheus
-hf_data: https://huggingface.co/datasets/kaist-ai/Feedback-Collection
-hf_model_7b: https://huggingface.co/kaist-ai/prometheus-7b-v1.0
-hf_model_13b: https://huggingface.co/kaist-ai/prometheus-13b-v1.0
+paper: https://arxiv.org/abs/2412.03679
+code: https://github.com/neulab/data-agora
+hf_data: https://huggingface.co/Data-Agora
 
 plugins:
   - jekyll-feed
