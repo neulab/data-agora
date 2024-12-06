@@ -47,14 +47,14 @@ pip install data-agora
 ### Root Directory
 ```
 .
-├── agora_scripts/           # Scripts for converting and handling data formats
+├── agora_scripts/          # Scripts for converting and handling data formats
 │   ├── prompts/            # Various prompt templates
-│   └── run.py             # Main execution script
+│   └── run.py              # Main execution script
 ├── assets/                 # Project images and visual assets
 ├── libs/                   # Core libraries
-│   └── data-agora/        # Main data processing library
-│       ├── data_agora/    # Core data agora implementation
-│       │   ├── core/      # Core functionality (LLMs, parsers, validators)
+│   └── data-agora/         # Main data processing library
+│       ├── data_agora/     # Core data agora implementation
+│       │   ├── core/       # Core functionality (LLMs, parsers, validators)
 ├── train/                  # Training related code (based on llama-recipes)
 └── LICENSE
 ```
