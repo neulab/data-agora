@@ -1,0 +1,102 @@
+[
+    {
+        "config": "mbpp",
+        "instruction": "\"\"\"\nWrite a function to find the longest chain which can be formed from the given set of pairs.\nassert max_chain_length([Pair(5, 24), Pair(15, 25),Pair(27, 40), Pair(50, 60)], 4) == 3\n\"\"\"\n",
+        "response": "```python\nclass Pair(object): \r\n\tdef __init__(self, a, b): \r\n\t\tself.a = a \r\n\t\tself.b = b \r\ndef max_chain_length(arr, n): \r\n\tmax = 0\r\n\tmcl = [1 for i in range(n)] \r\n\tfor i in range(1, n): \r\n\t\tfor j in range(0, i): \r\n\t\t\tif (arr[i].a > arr[j].b and\r\n\t\t\t\tmcl[i] < mcl[j] + 1): \r\n\t\t\t\tmcl[i] = mcl[j] + 1\r\n\tfor i in range(n): \r\n\t\tif (max < mcl[i]): \r\n\t\t\tmax = mcl[i] \r\n\treturn max\n```"
+    },
+    {
+        "config": "mbpp",
+        "instruction": "\"\"\"\nWrite a python function to find the first repeated character in a given string.\nassert first_repeated_char(\"abcabc\") == \"a\"\n\"\"\"\n",
+        "response": "```python\ndef first_repeated_char(str1):\r\n  for index,c in enumerate(str1):\r\n    if str1[:index+1].count(c) > 1:\r\n      return c \r\n  return \"None\"\n```"
+    },
+    {
+        "config": "mbpp",
+        "instruction": "\"\"\"\nWrite a function to get a lucid number smaller than or equal to n.\nassert get_ludic(10) == [1, 2, 3, 5, 7]\n\"\"\"\n",
+        "response": "```python\ndef get_ludic(n):\r\n\tludics = []\r\n\tfor i in range(1, n + 1):\r\n\t\tludics.append(i)\r\n\tindex = 1\r\n\twhile(index != len(ludics)):\r\n\t\tfirst_ludic = ludics[index]\r\n\t\tremove_index = index + first_ludic\r\n\t\twhile(remove_index < len(ludics)):\r\n\t\t\tludics.remove(ludics[remove_index])\r\n\t\t\tremove_index = remove_index + first_ludic - 1\r\n\t\tindex += 1\r\n\treturn ludics\n```"
+    },
+    {
+        "config": "mbpp",
+        "instruction": "\"\"\"\nWrite a function to reverse words in a given string.\nassert reverse_words(\"python program\")==(\"program python\")\n\"\"\"\n",
+        "response": "```python\ndef reverse_words(s):\r\n        return ' '.join(reversed(s.split()))\n```"
+    },
+    {
+        "config": "mbpp",
+        "instruction": "\"\"\"\nWrite a function to check if the given integer is a prime number.\nassert prime_num(13)==True\n\"\"\"\n",
+        "response": "```python\ndef prime_num(num):\r\n  if num >=1:\r\n   for i in range(2, num//2):\r\n     if (num % i) == 0:\r\n                return False\r\n     else:\r\n                return True\r\n  else:\r\n          return False\n```"
+    },
+    {
+        "config": "mbpp",
+        "instruction": "\"\"\"\nWrite a function to convert degrees to radians.\nassert radian_degree(90)==1.5707963267948966\n\"\"\"\n",
+        "response": "```python\nimport math\r\ndef radian_degree(degree):\r\n radian = degree*(math.pi/180)\r\n return radian\n```"
+    },
+    {
+        "config": "mbpp",
+        "instruction": "\"\"\"\nWrite a function to search a literals string in a string and also find the location within the original string where the pattern occurs by using regex.\nassert find_literals('The quick brown fox jumps over the lazy dog.', 'fox') == ('fox', 16, 19)\n\"\"\"\n",
+        "response": "```python\nimport re\r\npattern = 'fox'\r\ntext = 'The quick brown fox jumps over the lazy dog.'\r\ndef find_literals(text, pattern):\r\n  match = re.search(pattern, text)\r\n  s = match.start()\r\n  e = match.end()\r\n  return (match.re.pattern, s, e)\n```"
+    },
+    {
+        "config": "mbpp",
+        "instruction": "\"\"\"\nWrite a python function to find nth bell number.\nassert bell_Number(2) == 2\n\"\"\"\n",
+        "response": "```python\ndef bell_Number(n): \r\n    bell = [[0 for i in range(n+1)] for j in range(n+1)] \r\n    bell[0][0] = 1\r\n    for i in range(1, n+1):\r\n        bell[i][0] = bell[i-1][i-1]\r\n        for j in range(1, i+1): \r\n            bell[i][j] = bell[i-1][j-1] + bell[i][j-1] \r\n    return bell[n][0] \n```"
+    },
+    {
+        "config": "mbpp",
+        "instruction": "\"\"\"\nWrite a python function to find minimum possible value for the given periodic function.\nassert floor_Min(10,20,30) == 15\n\"\"\"\n",
+        "response": "```python\ndef floor_Min(A,B,N):\r\n    x = max(B - 1,N)\r\n    return (A*x) // B\n```"
+    },
+    {
+        "config": "mbpp",
+        "instruction": "\"\"\"\nWrite a python function to remove the k'th element from a given list.\nassert remove_kth_element([1,1,2,3,4,4,5,1],3)==[1, 1, 3, 4, 4, 5, 1]\n\"\"\"\n",
+        "response": "```python\ndef remove_kth_element(list1, L):\r\n    return  list1[:L-1] + list1[L:]\n```"
+    },
+    {
+        "config": "mbpp",
+        "instruction": "\"\"\"\nWrite a function to find the maximum of nth column from the given tuple list.\nassert max_of_nth([(5, 6, 7), (1, 3, 5), (8, 9, 19)], 2) == 19\n\"\"\"\n",
+        "response": "```python\ndef max_of_nth(test_list, N):\r\n  res = max([sub[N] for sub in test_list])\r\n  return (res) \n```"
+    },
+    {
+        "config": "mbpp",
+        "instruction": "\"\"\"\nWrite a python function to merge the first and last elements separately in a list of lists.\nassert merge([['x', 'y'], ['a', 'b'], ['m', 'n']]) == [['x', 'a', 'm'], ['y', 'b', 'n']]\n\"\"\"\n",
+        "response": "```python\ndef merge(lst):  \r\n    return [list(ele) for ele in list(zip(*lst))] \n```"
+    },
+    {
+        "config": "mbpp",
+        "instruction": "\"\"\"\nWrite a function to find the maximum value in record list as tuple attribute in the given tuple list.\nassert maximum_value([('key1', [3, 4, 5]), ('key2', [1, 4, 2]), ('key3', [9, 3])]) == [('key1', 5), ('key2', 4), ('key3', 9)]\n\"\"\"\n",
+        "response": "```python\ndef maximum_value(test_list):\r\n  res = [(key, max(lst)) for key, lst in test_list]\r\n  return (res) \n```"
+    },
+    {
+        "config": "mbpp",
+        "instruction": "\"\"\"\nWrite a function to find the cumulative sum of all the values that are present in the given tuple list.\nassert cummulative_sum([(1, 3), (5, 6, 7), (2, 6)]) == 30\n\"\"\"\n",
+        "response": "```python\ndef cummulative_sum(test_list):\r\n  res = sum(map(sum, test_list))\r\n  return (res)\n```"
+    },
+    {
+        "config": "mbpp",
+        "instruction": "\"\"\"\nWrite a function to find average value of the numbers in a given tuple of tuples.\nassert average_tuple(((10, 10, 10, 12), (30, 45, 56, 45), (81, 80, 39, 32), (1, 2, 3, 4)))==[30.5, 34.25, 27.0, 23.25]\n\"\"\"\n",
+        "response": "```python\ndef average_tuple(nums):\r\n    result = [sum(x) / len(x) for x in zip(*nums)]\r\n    return result\n```"
+    },
+    {
+        "config": "mbpp",
+        "instruction": "\"\"\"\nWrite a function to perfom the modulo of tuple elements in the given two tuples.\nassert tuple_modulo((10, 4, 5, 6), (5, 6, 7, 5)) == (0, 4, 5, 1)\n\"\"\"\n",
+        "response": "```python\ndef tuple_modulo(test_tup1, test_tup2):\r\n  res = tuple(ele1 % ele2 for ele1, ele2 in zip(test_tup1, test_tup2)) \r\n  return (res) \n```"
+    },
+    {
+        "config": "mbpp",
+        "instruction": "\"\"\"\nWrite a function to check for the number of jumps required of given length to reach a point of form (d, 0) from origin in a 2d plane.\nassert min_Jumps(3,4,11)==3.5\n\"\"\"\n",
+        "response": "```python\ndef min_Jumps(a, b, d): \r\n    temp = a \r\n    a = min(a, b) \r\n    b = max(temp, b) \r\n    if (d >= b): \r\n        return (d + b - 1) / b \r\n    if (d == 0): \r\n        return 0\r\n    if (d == a): \r\n        return 1\r\n    else:\r\n        return 2\n```"
+    },
+    {
+        "config": "mbpp",
+        "instruction": "\"\"\"\nWrite a function to divide two lists using map and lambda function.\nassert div_list([4,5,6],[1, 2, 3])==[4.0,2.5,2.0]\n\"\"\"\n",
+        "response": "```python\ndef div_list(nums1,nums2):\r\n  result = map(lambda x, y: x / y, nums1, nums2)\r\n  return list(result)\n```"
+    },
+    {
+        "config": "mbpp",
+        "instruction": "\"\"\"\nWrite a function to move all the numbers in it to the given string.\nassert move_num('I1love143you55three3000thousand') == 'Iloveyouthreethousand1143553000'\n\"\"\"\n",
+        "response": "```python\ndef move_num(test_str):\r\n  res = ''\r\n  dig = ''\r\n  for ele in test_str:\r\n    if ele.isdigit():\r\n      dig += ele\r\n    else:\r\n      res += ele\r\n  res += dig\r\n  return (res) \n```"
+    },
+    {
+        "config": "mbpp",
+        "instruction": "\"\"\"\nWrite a function to find the largest subset where each pair is divisible.\nassert largest_subset([ 1, 3, 6, 13, 17, 18 ], 6) == 4\n\"\"\"\n",
+        "response": "```python\ndef largest_subset(a, n):\r\n\tdp = [0 for i in range(n)]\r\n\tdp[n - 1] = 1; \r\n\tfor i in range(n - 2, -1, -1):\r\n\t\tmxm = 0;\r\n\t\tfor j in range(i + 1, n):\r\n\t\t\tif a[j] % a[i] == 0 or a[i] % a[j] == 0:\r\n\t\t\t\tmxm = max(mxm, dp[j])\r\n\t\tdp[i] = 1 + mxm\r\n\treturn max(dp)\n```"
+    }
+]

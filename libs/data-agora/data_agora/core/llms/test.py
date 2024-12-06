@@ -3,7 +3,7 @@ import string
 from dataclasses import dataclass
 from typing import Dict, List, Optional, Tuple
 
-from agora.core.llms.base import LLM
+from data_agora.core.llms.base import LLM
 
 
 class TestLLM(LLM):

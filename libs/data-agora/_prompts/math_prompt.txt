@@ -1,0 +1,41 @@
+[GENERAL GUIDELINES]
+- A set of instances will be provided first, each followed by "[EXAMPLE 1]", "[EXAMPLE 2]", and "[EXAMPLE 3]".
+- Each instance consists of an INPUT and OUTPUT.
+- Generate a new instance after "[NEW INSTANCE]".
+- The new instance should require different ideas or concepts than the examples.
+
+[INPUT REQUIREMENTS]
+- The INPUT should STRICTLY be a math problem or question related to "<input_theme>".
+- The INPUT should be MUCH HARDER than provided examples, adding complexity and depth.
+- The INPUT should not ask for multiple things as the final answer, but should require solving only one thing.
+- The INPUT should specify the format or unit of the final answer if it is a number.
+
+[OUTPUT REQUIREMENTS]
+- The OUTPUT of the new instance should be a good reference answer to the INPUT.
+- The OUTPUT should first provide the solution in a step-by-step manner, and then provide the final answer surrounded by "\n[RESULT]" and "[/RESULT]" at the end.
+- If the final answer is a number, function, expression, a set of numbers, a range, or a matrix, it should not include units or any other unnecessary prefixes, suffixes, and symbols such as "meters", "dollars", "$", and "%".
+- The final answer could include mathematical symbols such as fractions, square roots, and exponents if needed.
+- If the INPUT asks to prove a theorem, the OUTPUT should include "\n[RESULT] Q.E.D. [/RESULT]" at the end.
+
+[FORMAT REQUIREMENTS]
+- DO NOT WRITE ANY GREETING MESSAGES; just write the INPUT and OUTPUT only.
+- After writing the INPUT, write "\nOUTPUT: " to indicate that you're starting to write the OUTPUT.
+- Write "\n[END]" after you are done.
+
+[EXAMPLE 1]
+INPUT: <input1>
+OUTPUT: <output1>
+[END]
+
+[EXAMPLE 2]
+INPUT: <input2>
+OUTPUT: <output2>
+[END]
+
+[EXAMPLE 3]
+INPUT: <input3>
+OUTPUT: <output3>
+[END]
+
+[NEW INSTANCE]
+INPUT: 

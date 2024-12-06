@@ -1,4 +1,5 @@
 from typing import Dict, List
+
 import litellm
 from litellm import completion
 
@@ -6,7 +7,7 @@ from .base import LLM
 
 
 class LiteLLM(LLM):
-    def __init__(self, model_name: str, api_key: str, remove_stop:bool = False, api_base: str = None):
+    def __init__(self, model_name: str, api_key: str, remove_stop: bool = False, api_base: str = None):
         """Initialize the LiteLLM with basic configurations."""
         self.model_name = model_name
         self.api_base = api_base
@@ -26,7 +27,9 @@ class LiteLLM(LLM):
 
         if self.remove_stop:
             kwargs.pop("stop", None)
-        return completion(model=self.model_name, base_url=self.api_base, api_key=self.api_key, messages=messages, **kwargs)
+        return completion(
+            model=self.model_name, base_url=self.api_base, api_key=self.api_key, messages=messages, **kwargs
+        )
 
 
 def _test():
