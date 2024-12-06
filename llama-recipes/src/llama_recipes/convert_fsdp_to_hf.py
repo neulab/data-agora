@@ -60,7 +60,7 @@ def main(
     tokenizer = AutoTokenizer.from_pretrained(HF_model_path_or_name)
     
     
-    token = "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"
+    token = ""
 
 
     # Create a new repository on Hugging Face Hub
