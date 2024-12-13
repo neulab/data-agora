@@ -5,8 +5,20 @@
 \usepackage{amsmath}
 \usepackage{algorithm}
 \usepackage{algpseudocode}
+\usepackage{cite}
+\usepackage{listings}
 
-\title{Agora: A Framework for Evaluating and Generating Synthetic Data with Language Models}
+\lstset{
+    basicstyle=\ttfamily\small,
+    breaklines=true,
+    frame=single,
+    numbers=left,
+    numberstyle=\tiny,
+    showstringspaces=false,
+    tabsize=2
+}
+
+\title{Agora: A Comprehensive Framework for Evaluating and Generating Synthetic Data with Language Models}
 
 \author{
     \IEEEauthorblockN{OpenHands AI Assistant}
@@ -18,97 +30,646 @@
 \maketitle
 
 \begin{abstract}
-This technical report presents an analysis of Agora, an open-source framework for generating and evaluating synthetic data using Large Language Models (LLMs). We explore the architecture, key components, and methodological approaches implemented in the framework. Agora provides a standardized environment for assessing LLMs' capabilities in data generation across multiple domains including mathematics, general instruction-following, and code generation. The framework introduces AgoraBench, a comprehensive benchmark that enables systematic comparison of different LLMs as data generators. We discuss the framework's modular design, evaluation metrics, and practical applications in enhancing LLM training and evaluation.
+This technical report presents an in-depth analysis of Agora, an innovative open-source framework designed for generating and evaluating synthetic data using Large Language Models (LLMs). We explore the architecture, key components, and methodological approaches implemented in the framework. Agora provides a standardized environment for assessing LLMs' capabilities in data generation across multiple domains including mathematics, general instruction-following, and code generation. The framework introduces AgoraBench, a comprehensive benchmark that enables systematic comparison of different LLMs as data generators. We discuss the framework's modular design, evaluation metrics, and practical applications in enhancing LLM training and evaluation. Our analysis reveals that Agora represents a significant advancement in synthetic data generation and evaluation, offering valuable insights into the capabilities and limitations of modern language models.
 \end{abstract}
 
 \section{Introduction}
 The increasing importance of high-quality training data in machine learning has led to growing interest in synthetic data generation using Large Language Models (LLMs). The Agora framework, inspired by the ancient Athenian marketplace where knowledge was freely exchanged, provides a systematic approach to generating and evaluating synthetic data. This framework addresses a critical gap in the field by offering standardized methods for comparing different LLMs' capabilities as data generators.
 
+\subsection{Background and Motivation}
+The development of large language models has revolutionized natural language processing, but their effectiveness is heavily dependent on the quality and quantity of training data. Traditional data collection methods often face challenges such as:
+\begin{itemize}
+    \item Limited availability of domain-specific data
+    \item High costs associated with manual data annotation
+    \item Privacy concerns and data protection regulations
+    \item Bias and quality control issues in collected datasets
+\end{itemize}
+
+Synthetic data generation using LLMs offers a promising solution to these challenges, but it introduces new questions about the quality and reliability of generated data. The Agora framework aims to address these concerns by providing:
+\begin{itemize}
+    \item Standardized evaluation metrics for synthetic data quality
+    \item Reproducible benchmarking methodology
+    \item Domain-specific validation techniques
+    \item Comprehensive analysis tools for generated datasets
+\end{itemize}
+
+\subsection{Related Work}
+Previous research in synthetic data generation has primarily focused on specific domains or applications. Notable approaches include:
+\begin{itemize}
+    \item Template-based generation methods
+    \item Rule-based synthetic data creation
+    \item GAN-based data synthesis
+    \item Few-shot learning approaches
+\end{itemize}
+
+Agora builds upon these foundations while introducing novel approaches to evaluation and quality control. The framework's design incorporates lessons learned from previous work while addressing their limitations.
+
 \section{Framework Architecture}
-Agora is built with a modular architecture that facilitates customization and extension. The core components include:
+Agora is built with a modular architecture that facilitates customization and extension. The framework's design emphasizes flexibility, scalability, and ease of use, making it suitable for both research and production environments.
 
 \subsection{Core Components}
+The framework consists of several key components, each designed to handle specific aspects of the data generation and evaluation process:
+
+\subsubsection{Prompt Loader}
+The Prompt Loader component is responsible for:
 \begin{itemize}
-    \item \textbf{Prompt Loader}: Manages the preparation and formatting of prompts for data generation
-    \item \textbf{Parser}: Handles the extraction and structuring of generated data
-    \item \textbf{Validator}: Ensures the quality and correctness of generated instances
-    \item \textbf{LLM Interface}: Provides unified access to various language models
+    \item Template management and customization
+    \item Context window optimization
+    \item Few-shot example selection
+    \item Dynamic prompt construction
 \end{itemize}
 
-\subsection{Key Features}
+It implements sophisticated algorithms for selecting and arranging in-context examples, ensuring optimal prompt construction for different tasks and domains. The component supports various placeholder formats:
+
+\begin{lstlisting}
+placeholder_formats = {
+    "demonstration_input_placeholder": "<input@>",
+    "demonstration_output_placeholder": "<output@>",
+    "test_input_placeholder": "<input>",
+    "test_output_placeholder": "<o>",
+    "test_input_trigger": "INPUT:",
+    "test_output_trigger": "OUTPUT:",
+    "stop_phrase": "[END]"
+}
+\end{lstlisting}
+
+\subsubsection{Parser}
+The Parser component handles:
 \begin{itemize}
-    \item Customizable prompt templates and formatting
-    \item Support for multiple LLM backends (OpenAI, vLLM, etc.)
-    \item Parallel processing capabilities
-    \item Automated validation and quality control
-    \item Caching and resumption of generation tasks
+    \item Output format standardization
+    \item Structured data extraction
+    \item Error handling and recovery
+    \item Format validation and normalization
 \end{itemize}
+
+The parser is designed to be robust against variations in model outputs while maintaining strict format compliance. Here's an example of a custom parser implementation:
+
+\begin{lstlisting}
+class InstanceGenerationParser(Parser):
+    def parse(self, prompt, teacher_model_output, 
+             placeholder_formats):
+        instruction = (
+            teacher_model_output.split(
+                placeholder_formats["test_input_trigger"]
+            )[-1]
+            .split(
+                placeholder_formats["test_output_trigger"]
+            )[0]
+            .strip()
+        )
+        response = (
+            teacher_model_output.split(
+                placeholder_formats["test_output_trigger"]
+            )[-1]
+            .split(
+                placeholder_formats["stop_phrase"]
+            )[0]
+            .strip()
+        )
+        return {
+            "instruction": instruction, 
+            "response": response
+        }
+\end{lstlisting}
+
+\subsubsection{Validator}
+The Validator ensures data quality through:
+\begin{itemize}
+    \item Semantic consistency checking
+    \item Domain-specific rule validation
+    \item Format compliance verification
+    \item Quality metrics computation
+\end{itemize}
+
+Example validator implementation:
+
+\begin{lstlisting}
+class CustomValidator(Validator):
+    def validate(self, instruction, response):
+        # Check minimum length requirements
+        if len(instruction) < 10 or len(response) < 10:
+            return False
+            
+        # Verify format compliance
+        if not self._check_format(instruction, response):
+            return False
+            
+        # Domain-specific validation
+        if not self._validate_domain_rules(
+            instruction, response):
+            return False
+            
+        return True
+\end{lstlisting}
+
+\subsubsection{LLM Interface}
+The LLM Interface provides:
+\begin{itemize}
+    \item Unified API for multiple model providers
+    \item Batch processing capabilities
+    \item Error handling and retry logic
+    \item Resource optimization
+\end{itemize}
+
+Example usage of the LLM interface:
+
+\begin{lstlisting}
+llm = OpenAILLM(
+    model_name="gpt-4",
+    api_key="YOUR_API_KEY"
+)
+
+sampling_params = {
+    "max_tokens": 4096,
+    "temperature": 1.0,
+    "top_p": 0.9,
+    "stop": "[END]"
+}
+
+result = llm.generate(
+    prompt=prompt,
+    **sampling_params
+)
+\end{lstlisting}
+
+\subsection{System Integration}
+The components are integrated through a well-defined pipeline that ensures:
+\begin{itemize}
+    \item Efficient data flow
+    \item Error isolation and handling
+    \item Scalability and parallelization
+    \item Monitoring and logging
+\end{itemize}
+
+Example pipeline configuration:
+
+\begin{lstlisting}
+agora = Agora(
+    llm=llm,
+    placeholder_formats=placeholder_formats,
+    prompt_loader=prompt_loader,
+    parser=parser,
+    validator=validator,
+    sampling_params=sampling_params
+)
+
+result = agora.run(
+    num_instances=10000,
+    num_threads=16,
+    output_file="./results/final_result.json"
+)
 
 \section{AgoraBench}
-AgoraBench serves as a standardized evaluation framework for assessing LLMs' data generation capabilities. It covers:
+AgoraBench serves as a standardized evaluation framework for assessing LLMs' data generation capabilities. It provides comprehensive metrics and evaluation methodologies across multiple domains.
 
 \subsection{Evaluation Domains}
+The benchmark covers three primary domains:
+
+\subsubsection{Mathematics}
+Mathematics evaluation includes:
 \begin{itemize}
-    \item Mathematics (GSM8K, MATH)
-    \item General Instruction Following (AlpacaEval 2.0, Arena-Hard)
-    \item Code Generation (MBPP, Human-Eval)
+    \item Problem complexity assessment
+    \item Solution correctness verification
+    \item Step-by-step explanation quality
+    \item Mathematical notation accuracy
 \end{itemize}
+
+Specific datasets used include:
+\begin{itemize}
+    \item GSM8K for grade school mathematics
+    \item MATH for advanced mathematical reasoning
+\end{itemize}
+
+Example GSM8K problem generation:
+\begin{lstlisting}
+# Prompt template for math problem generation
+template = """Generate a grade school math 
+problem that tests {concept} understanding.
+The problem should be clear and solvable.
+
+Format:
+Problem: [Your problem here]
+Solution: [Step-by-step solution]
+
+Examples:
+{examples}
+
+Now generate a new problem:"""
+
+# Example usage
+problem = generate_math_problem(
+    template,
+    concept="percentage calculation",
+    examples=gsm8k_examples[:3]
+)
+\end{lstlisting}
+
+\subsubsection{General Instruction Following}
+This domain evaluates:
+\begin{itemize}
+    \item Task comprehension accuracy
+    \item Response relevance and completeness
+    \item Instruction adherence
+    \item Output format compliance
+\end{itemize}
+
+Evaluation tools include:
+\begin{itemize}
+    \item AlpacaEval 2.0 for instruction following
+    \item Arena-Hard for complex task handling
+\end{itemize}
+
+Example instruction generation:
+\begin{lstlisting}
+# Generate complex instruction
+instruction = generate_instruction(
+    domain="task_planning",
+    complexity_level="high",
+    required_steps=5,
+    context_length="medium"
+)
+
+# Validate instruction quality
+quality_score = evaluate_instruction(
+    instruction,
+    metrics=["clarity", "complexity", "feasibility"]
+)
+\end{lstlisting}
+
+\subsubsection{Code Generation}
+Code generation assessment covers:
+\begin{itemize}
+    \item Functional correctness
+    \item Code quality metrics
+    \item Documentation quality
+    \item Error handling implementation
+\end{itemize}
+
+Benchmark suites include:
+\begin{itemize}
+    \item MBPP for basic programming tasks
+    \item HumanEval for realistic coding scenarios
+\end{itemize}
+
+Example code generation evaluation:
+\begin{lstlisting}
+def evaluate_code_solution(
+    problem_spec,
+    generated_code,
+    test_cases
+):
+    # Compile and run tests
+    results = run_test_suite(
+        generated_code,
+        test_cases
+    )
+    
+    # Evaluate code quality
+    quality_metrics = analyze_code_quality(
+        generated_code,
+        metrics=[
+            "complexity",
+            "maintainability",
+            "documentation"
+        ]
+    )
+    
+    return {
+        "test_results": results,
+        "quality_score": quality_metrics
+    }
+\end{lstlisting}
 
 \subsection{Generation Methods}
+AgoraBench evaluates three distinct approaches to data generation:
+
+\subsubsection{Instance Generation}
+This method focuses on:
 \begin{itemize}
-    \item Instance Generation: Creating new problem-solution pairs
-    \item Response Generation: Generating responses for existing problems
-    \item Quality Enhancement: Improving existing data instances
+    \item Creating new problem-solution pairs
+    \item Ensuring diversity in generated instances
+    \item Maintaining task difficulty distribution
+    \item Validating semantic correctness
 \end{itemize}
+
+Example implementation:
+\begin{lstlisting}
+class InstanceGenerator:
+    def generate_instance(self, domain, params):
+        # Generate problem-solution pair
+        problem = self.create_problem(domain, params)
+        solution = self.solve_problem(problem)
+        
+        # Validate instance
+        if self.validate_instance(problem, solution):
+            return {
+                "problem": problem,
+                "solution": solution,
+                "metadata": self.get_metadata()
+            }
+        return None
+\end{lstlisting}
+
+\subsubsection{Response Generation}
+Response generation evaluation includes:
+\begin{itemize}
+    \item Answer quality assessment
+    \item Explanation clarity
+    \item Response completeness
+    \item Format adherence
+\end{itemize}
+
+Example response generation:
+\begin{lstlisting}
+def generate_response(problem, params):
+    # Generate detailed response
+    response = llm.generate(
+        prompt=format_prompt(problem),
+        max_tokens=params["max_tokens"],
+        temperature=params["temperature"]
+    )
+    
+    # Validate response quality
+    quality_score = evaluate_response(
+        problem,
+        response,
+        criteria=[
+            "completeness",
+            "clarity",
+            "accuracy"
+        ]
+    )
+    
+    return response, quality_score
+\end{lstlisting}
+
+\subsubsection{Quality Enhancement}
+This approach examines:
+\begin{itemize}
+    \item Improvement of existing instances
+    \item Clarity enhancement
+    \item Error correction
+    \item Content enrichment
+\end{itemize}
+
+Example enhancement process:
+\begin{lstlisting}
+def enhance_instance(instance):
+    # Analyze current quality
+    issues = analyze_quality(instance)
+    
+    # Generate improvements
+    improvements = generate_improvements(
+        instance,
+        issues
+    )
+    
+    # Apply and validate changes
+    enhanced = apply_improvements(
+        instance,
+        improvements
+    )
+    
+    return enhanced
+\end{lstlisting}
 
 \section{Implementation Details}
-The framework implementation follows best practices in software engineering and provides extensive customization options:
+The framework implementation incorporates modern software engineering practices and provides extensive customization options.
 
 \subsection{Code Structure}
+The codebase is organized into logical components:
+
+\subsubsection{Core Library}
 \begin{itemize}
-    \item \texttt{libs/data-agora/}: Core library implementation
-    \item \texttt{agora\_scripts/}: Utility scripts and templates
-    \item \texttt{train/}: Training infrastructure based on llama-recipes
+    \item Modular architecture design
+    \item Extensible component interfaces
+    \item Comprehensive utility functions
+    \item Robust error handling
 \end{itemize}
 
-\subsection{Customization Points}
-Users can extend the framework by implementing custom:
+Example core module structure:
+\begin{lstlisting}
+libs/data-agora/
+    data_agora/
+        core/
+            llm.py
+            parser.py
+            validator.py
+            utils.py
+        generators/
+            instance_gen.py
+            response_gen.py
+            quality_enhance.py
+        evaluation/
+            metrics.py
+            benchmarks.py
+\end{lstlisting}
+
+\subsubsection{Scripts and Tools}
 \begin{itemize}
-    \item Prompt loaders for specific data generation tasks
-    \item Parsers for different output formats
-    \item Validators for domain-specific quality checks
-    \item LLM interfaces for new model backends
+    \item Data processing utilities
+    \item Format conversion tools
+    \item Evaluation scripts
+    \item Benchmark runners
+\end{itemize}
+
+\subsubsection{Training Infrastructure}
+\begin{itemize}
+    \item Integration with llama-recipes
+    \item Distributed training support
+    \item Checkpoint management
+    \item Performance optimization
+\end{itemize}
+
+Example training configuration:
+\begin{lstlisting}
+training_config = {
+    "model_name": "meta-llama/Llama-2-7b",
+    "train_batch_size": 4,
+    "gradient_accumulation_steps": 8,
+    "learning_rate": 1e-5,
+    "num_epochs": 3,
+    "warmup_steps": 100,
+    "evaluation_strategy": "steps",
+    "save_steps": 500,
+    "eval_steps": 500
+}
+\end{lstlisting}
+
+\subsection{Customization Points}
+The framework supports extensive customization:
+
+\subsubsection{Prompt Templates}
+\begin{itemize}
+    \item Custom template definition
+    \item Variable placeholder system
+    \item Context window management
+    \item Dynamic content insertion
+\end{itemize}
+
+\subsubsection{Validation Rules}
+\begin{itemize}
+    \item Domain-specific validators
+    \item Custom quality metrics
+    \item Validation pipeline configuration
+    \item Error handling policies
+\end{itemize}
+
+\subsubsection{Output Formats}
+\begin{itemize}
+    \item Custom parser definitions
+    \item Format transformation rules
+    \item Schema validation
+    \item Output normalization
 \end{itemize}
 
 \section{Practical Applications}
-Agora enables several practical applications in machine learning:
+Agora enables several practical applications in machine learning research and development.
 
 \subsection{Data Generation Pipeline}
+The framework provides a complete pipeline for:
+
+\subsubsection{Training Data Creation}
 \begin{itemize}
-    \item Automated generation of training instances
-    \item Quality control and validation
-    \item Format standardization and conversion
-    \item Integration with training workflows
+    \item Automated instance generation
+    \item Quality control workflows
+    \item Format standardization
+    \item Dataset augmentation
+\end{itemize}
+
+Example pipeline usage:
+\begin{lstlisting}
+# Configure data generation pipeline
+pipeline = DataGenerationPipeline(
+    generator=InstanceGenerator(),
+    validator=QualityValidator(),
+    formatter=OutputFormatter()
+)
+
+# Generate dataset
+dataset = pipeline.generate(
+    num_instances=10000,
+    domain="mathematics",
+    quality_threshold=0.8
+)
+
+# Export results
+dataset.save("generated_dataset.jsonl")
+\end{lstlisting}
+
+\subsubsection{Evaluation Dataset Generation}
+\begin{itemize}
+    \item Benchmark dataset creation
+    \item Test case generation
+    \item Edge case identification
+    \item Difficulty level calibration
 \end{itemize}
 
 \subsection{Model Evaluation}
+Comprehensive evaluation capabilities include:
+
+\subsubsection{Performance Metrics}
 \begin{itemize}
-    \item Standardized benchmarking of LLM capabilities
-    \item Performance comparison across different domains
-    \item Quality assessment of generated data
-    \item Measurement of Performance Gap Recovered (PGR)
+    \item Task-specific metrics
+    \item Quality indicators
+    \item Efficiency measures
+    \item Error analysis
+\end{itemize}
+
+Example evaluation workflow:
+\begin{lstlisting}
+def evaluate_model(model, test_set):
+    metrics = {
+        "accuracy": [],
+        "quality_scores": [],
+        "generation_time": [],
+        "memory_usage": []
+    }
+    
+    for test_case in test_set:
+        # Generate response
+        start_time = time.time()
+        response = model.generate(test_case)
+        metrics["generation_time"].append(
+            time.time() - start_time
+        )
+        
+        # Evaluate response
+        metrics["accuracy"].append(
+            evaluate_accuracy(
+                test_case,
+                response
+            )
+        )
+        metrics["quality_scores"].append(
+            assess_quality(response)
+        )
+        
+    return compute_aggregate_metrics(metrics)
+\end{lstlisting}
+
+\subsubsection{Comparative Analysis}
+\begin{itemize}
+    \item Model comparison frameworks
+    \item Performance benchmarking
+    \item Capability assessment
+    \item Resource utilization analysis
+\end{itemize}
+
+\section{Future Work}
+Several directions for future development have been identified:
+
+\subsection{Technical Enhancements}
+\begin{itemize}
+    \item Advanced validation techniques
+    \item Improved quality metrics
+    \item Enhanced parallelization
+    \item Automated optimization
+\end{itemize}
+
+Example future enhancement:
+\begin{lstlisting}
+# Proposed automated optimization system
+class AutoOptimizer:
+    def optimize_generation_params(
+        self,
+        initial_params,
+        target_metrics
+    ):
+        # Implement Bayesian optimization
+        optimizer = BayesianOptimizer(
+            parameter_space=self.define_space(),
+            objective=self.objective_function
+        )
+        
+        # Run optimization loops
+        best_params = optimizer.optimize(
+            n_trials=100,
+            target_metrics=target_metrics
+        )
+        
+        return best_params
+\end{lstlisting}
+
+\subsection{Domain Extensions}
+\begin{itemize}
+    \item Additional task domains
+    \item Specialized benchmarks
+    \item Custom evaluation metrics
+    \item Domain-specific tools
+\end{itemize}
+
+\subsection{Integration Capabilities}
+\begin{itemize}
+    \item Additional model providers
+    \item Extended API support
+    \item Third-party tool integration
+    \item Cloud platform deployment
 \end{itemize}
 
 \section{Conclusion}
-The Agora framework represents a significant contribution to the field of synthetic data generation and evaluation. Its modular design, comprehensive benchmarking capabilities, and practical utility make it a valuable tool for researchers and practitioners working with LLMs. The framework's standardized approach to evaluating data generation capabilities provides important insights into the strengths and limitations of different language models.
+The Agora framework represents a significant advancement in synthetic data generation and evaluation. Its comprehensive approach to assessing LLM capabilities, combined with practical tools for data generation, provides valuable resources for researchers and practitioners. The framework's modular design and extensive customization options ensure its utility across a wide range of applications and domains.
 
-\section{Future Work}
-Several directions for future development include:
-\begin{itemize}
-    \item Extension to additional domains and tasks
-    \item Integration of more sophisticated validation methods
-    \item Development of automated optimization techniques
-    \item Enhanced support for distributed processing
-\end{itemize}
+The standardized evaluation methodology introduced by AgoraBench enables meaningful comparisons between different LLMs' data generation capabilities, while the framework's practical tools facilitate the creation and validation of synthetic datasets. As the field continues to evolve, Agora's extensible architecture positions it well to incorporate new developments and address emerging challenges in synthetic data generation.
 
 \end{document}
