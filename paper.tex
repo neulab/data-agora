@@ -1,0 +1,114 @@
+\documentclass[10pt,conference]{IEEEtran}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{amsmath}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+
+\title{Agora: A Framework for Evaluating and Generating Synthetic Data with Language Models}
+
+\author{
+    \IEEEauthorblockN{OpenHands AI Assistant}
+    \IEEEauthorblockA{Technical Report\\
+    December 2023}
+}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This technical report presents an analysis of Agora, an open-source framework for generating and evaluating synthetic data using Large Language Models (LLMs). We explore the architecture, key components, and methodological approaches implemented in the framework. Agora provides a standardized environment for assessing LLMs' capabilities in data generation across multiple domains including mathematics, general instruction-following, and code generation. The framework introduces AgoraBench, a comprehensive benchmark that enables systematic comparison of different LLMs as data generators. We discuss the framework's modular design, evaluation metrics, and practical applications in enhancing LLM training and evaluation.
+\end{abstract}
+
+\section{Introduction}
+The increasing importance of high-quality training data in machine learning has led to growing interest in synthetic data generation using Large Language Models (LLMs). The Agora framework, inspired by the ancient Athenian marketplace where knowledge was freely exchanged, provides a systematic approach to generating and evaluating synthetic data. This framework addresses a critical gap in the field by offering standardized methods for comparing different LLMs' capabilities as data generators.
+
+\section{Framework Architecture}
+Agora is built with a modular architecture that facilitates customization and extension. The core components include:
+
+\subsection{Core Components}
+\begin{itemize}
+    \item \textbf{Prompt Loader}: Manages the preparation and formatting of prompts for data generation
+    \item \textbf{Parser}: Handles the extraction and structuring of generated data
+    \item \textbf{Validator}: Ensures the quality and correctness of generated instances
+    \item \textbf{LLM Interface}: Provides unified access to various language models
+\end{itemize}
+
+\subsection{Key Features}
+\begin{itemize}
+    \item Customizable prompt templates and formatting
+    \item Support for multiple LLM backends (OpenAI, vLLM, etc.)
+    \item Parallel processing capabilities
+    \item Automated validation and quality control
+    \item Caching and resumption of generation tasks
+\end{itemize}
+
+\section{AgoraBench}
+AgoraBench serves as a standardized evaluation framework for assessing LLMs' data generation capabilities. It covers:
+
+\subsection{Evaluation Domains}
+\begin{itemize}
+    \item Mathematics (GSM8K, MATH)
+    \item General Instruction Following (AlpacaEval 2.0, Arena-Hard)
+    \item Code Generation (MBPP, Human-Eval)
+\end{itemize}
+
+\subsection{Generation Methods}
+\begin{itemize}
+    \item Instance Generation: Creating new problem-solution pairs
+    \item Response Generation: Generating responses for existing problems
+    \item Quality Enhancement: Improving existing data instances
+\end{itemize}
+
+\section{Implementation Details}
+The framework implementation follows best practices in software engineering and provides extensive customization options:
+
+\subsection{Code Structure}
+\begin{itemize}
+    \item \texttt{libs/data-agora/}: Core library implementation
+    \item \texttt{agora\_scripts/}: Utility scripts and templates
+    \item \texttt{train/}: Training infrastructure based on llama-recipes
+\end{itemize}
+
+\subsection{Customization Points}
+Users can extend the framework by implementing custom:
+\begin{itemize}
+    \item Prompt loaders for specific data generation tasks
+    \item Parsers for different output formats
+    \item Validators for domain-specific quality checks
+    \item LLM interfaces for new model backends
+\end{itemize}
+
+\section{Practical Applications}
+Agora enables several practical applications in machine learning:
+
+\subsection{Data Generation Pipeline}
+\begin{itemize}
+    \item Automated generation of training instances
+    \item Quality control and validation
+    \item Format standardization and conversion
+    \item Integration with training workflows
+\end{itemize}
+
+\subsection{Model Evaluation}
+\begin{itemize}
+    \item Standardized benchmarking of LLM capabilities
+    \item Performance comparison across different domains
+    \item Quality assessment of generated data
+    \item Measurement of Performance Gap Recovered (PGR)
+\end{itemize}
+
+\section{Conclusion}
+The Agora framework represents a significant contribution to the field of synthetic data generation and evaluation. Its modular design, comprehensive benchmarking capabilities, and practical utility make it a valuable tool for researchers and practitioners working with LLMs. The framework's standardized approach to evaluating data generation capabilities provides important insights into the strengths and limitations of different language models.
+
+\section{Future Work}
+Several directions for future development include:
+\begin{itemize}
+    \item Extension to additional domains and tasks
+    \item Integration of more sophisticated validation methods
+    \item Development of automated optimization techniques
+    \item Enhanced support for distributed processing
+\end{itemize}
+
+\end{document}
